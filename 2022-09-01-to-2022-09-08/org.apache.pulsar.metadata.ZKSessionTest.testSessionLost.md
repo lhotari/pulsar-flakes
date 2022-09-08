@@ -1,0 +1,53 @@
+        
+Flaky-test: org.apache.pulsar.metadata.ZKSessionTest.testSessionLost
+Number of failures: 8
+
+org.apache.pulsar.metadata.ZKSessionTest is flaky. The testSessionLost test method fails sporadically.
+
+```
+java.lang.AssertionError: expected [Reconnected] but found [null]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:617)
+	at org.apache.pulsar.metadata.ZKSessionTest.testSessionLost(ZKSessionTest.java:93)
+```
+
+Usage tip: To enable automatic navigation to failure message, open the following links with CTRL/CMD-click.  
+[example failure 2022-07-15T06:25:42.2121843Z](https://github.com/apache/pulsar/runs/7352376168?check_suite_focus=true#step:10:10228)  
+[example failure 2022-07-15T06:09:09.6797314Z](https://github.com/apache/pulsar/runs/7352154015?check_suite_focus=true#step:10:543)  
+[example failure 2022-06-09T15:50:04.6937340Z](https://github.com/apache/pulsar/runs/6815614493?check_suite_focus=true#step:10:630)  
+[example failure 2022-06-07T07:07:22.9502052Z](https://github.com/apache/pulsar/runs/6768767341?check_suite_focus=true#step:10:528)  
+[example failure 2022-06-06T16:22:40.6535779Z](https://github.com/apache/pulsar/runs/6758466639?check_suite_focus=true#step:10:11893)  
+[example failure 2022-06-06T10:36:27.0108030Z](https://github.com/apache/pulsar/runs/6753618339?check_suite_focus=true#step:10:532)  
+[example failure 2022-06-06T05:34:50.2745789Z](https://github.com/apache/pulsar/runs/6750401138?check_suite_focus=true#step:10:10292)  
+[example failure 2022-06-03T00:03:41.9311565Z](https://github.com/apache/pulsar/runs/6717562871?check_suite_focus=true#step:10:1191)  
+
+
+<details>
+<summary>Full exception stacktrace</summary>
+<code><pre>
+java.lang.AssertionError: expected [Reconnected] but found [null]
+	at org.testng.Assert.fail(Assert.java:99)
+	at org.testng.Assert.failNotEquals(Assert.java:1037)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:140)
+	at org.testng.Assert.assertEquals(Assert.java:122)
+	at org.testng.Assert.assertEquals(Assert.java:617)
+	at org.apache.pulsar.metadata.ZKSessionTest.testSessionLost(ZKSessionTest.java:93)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+	at org.testng.internal.InvokeMethodRunnable.runOne(InvokeMethodRunnable.java:45)
+	at org.testng.internal.InvokeMethodRunnable.call(InvokeMethodRunnable.java:73)
+	at org.testng.internal.InvokeMethodRunnable.call(InvokeMethodRunnable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+</pre></code>
+</details>
+

@@ -1,0 +1,150 @@
+        
+Flaky-test: org.apache.pulsar.functions.worker.PulsarFunctionPublishTest.setup
+Number of failures: 1
+
+org.apache.pulsar.functions.worker.PulsarFunctionPublishTest is flaky. The setup test method fails sporadically.
+
+```
+org.apache.pulsar.broker.PulsarServerException: java.lang.RuntimeException: org.apache.pulsar.client.admin.PulsarAdminException$PreconditionFailedException: Failed to find ownership for topic:persistent://external-repl-prop/pulsar-function-admin/metadata
+	at org.apache.pulsar.broker.PulsarService.start(PulsarService.java:911)
+	at org.apache.pulsar.functions.worker.PulsarFunctionPublishTest.setup(PulsarFunctionPublishTest.java:161)
+```
+
+Usage tip: To enable automatic navigation to failure message, open the following links with CTRL/CMD-click.  
+[example failure 2022-11-25T16:52:47.2399711Z](https://github.com/apache/pulsar/actions/runs/3549415325/jobs/5961992334#step:10:767)  
+
+
+<details>
+<summary>Full exception stacktrace</summary>
+<code><pre>
+org.apache.pulsar.broker.PulsarServerException: java.lang.RuntimeException: org.apache.pulsar.client.admin.PulsarAdminException$PreconditionFailedException: Failed to find ownership for topic:persistent://external-repl-prop/pulsar-function-admin/metadata
+	at org.apache.pulsar.broker.PulsarService.start(PulsarService.java:911)
+	at org.apache.pulsar.functions.worker.PulsarFunctionPublishTest.setup(PulsarFunctionPublishTest.java:161)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:361)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:296)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:816)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:590)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:962)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:806)
+	at org.testng.TestRunner.run(TestRunner.java:601)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:433)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:427)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+	at org.testng.TestNG.runSuites(TestNG.java:1099)
+	at org.testng.TestNG.run(TestNG.java:1067)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:135)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:112)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeLazy(TestNGDirectoryTestSuite.java:123)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:90)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:146)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: java.lang.RuntimeException: org.apache.pulsar.client.admin.PulsarAdminException$PreconditionFailedException: Failed to find ownership for topic:persistent://external-repl-prop/pulsar-function-admin/metadata
+	at org.apache.pulsar.functions.worker.PulsarWorkerService.start(PulsarWorkerService.java:589)
+	at org.apache.pulsar.broker.PulsarService.startWorkerService(PulsarService.java:1729)
+	at org.apache.pulsar.broker.PulsarService.start(PulsarService.java:874)
+	... 39 more
+Caused by: org.apache.pulsar.client.admin.PulsarAdminException$PreconditionFailedException: Failed to find ownership for topic:persistent://external-repl-prop/pulsar-function-admin/metadata
+	at org.apache.pulsar.client.admin.PulsarAdminException.wrap(PulsarAdminException.java:252)
+	at org.apache.pulsar.client.admin.internal.BaseResource.sync(BaseResource.java:351)
+	at org.apache.pulsar.client.admin.internal.TopicsImpl.createNonPartitionedTopic(TopicsImpl.java:308)
+	at org.apache.pulsar.client.admin.Topics.createNonPartitionedTopic(Topics.java:539)
+	at org.apache.pulsar.functions.worker.PulsarWorkerService.tryCreateNonPartitionedTopic(PulsarWorkerService.java:392)
+	at org.apache.pulsar.functions.worker.PulsarWorkerService.start(PulsarWorkerService.java:447)
+	... 41 more
+	Suppressed: org.apache.pulsar.client.admin.PulsarAdminException$PreconditionFailedException: Failed to find ownership for topic:persistent://external-repl-prop/pulsar-function-admin/metadata
+		at org.apache.pulsar.client.admin.internal.BaseResource.getApiException(BaseResource.java:289)
+		at org.apache.pulsar.client.admin.internal.BaseResource$1.failed(BaseResource.java:136)
+		at org.glassfish.jersey.client.JerseyInvocation$1.failed(JerseyInvocation.java:882)
+		at org.glassfish.jersey.client.JerseyInvocation$1.completed(JerseyInvocation.java:863)
+		at org.glassfish.jersey.client.ClientRuntime.processResponse(ClientRuntime.java:229)
+		at org.glassfish.jersey.client.ClientRuntime.access$200(ClientRuntime.java:62)
+		at org.glassfish.jersey.client.ClientRuntime$2.lambda$response$0(ClientRuntime.java:173)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+		at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+		at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+		at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:288)
+		at org.glassfish.jersey.client.ClientRuntime$2.response(ClientRuntime.java:173)
+		at org.apache.pulsar.client.admin.internal.http.AsyncHttpConnector.lambda$apply$1(AsyncHttpConnector.java:251)
+		at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
+		at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+		at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2147)
+		at org.apache.pulsar.client.admin.internal.http.AsyncHttpConnector.lambda$retryOperation$4(AsyncHttpConnector.java:293)
+		at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
+		at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
+		at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+		at java.base/java.util.concurrent.CompletableFuture.complete(CompletableFuture.java:2147)
+		at org.asynchttpclient.netty.NettyResponseFuture.loadContent(NettyResponseFuture.java:222)
+		at org.asynchttpclient.netty.NettyResponseFuture.done(NettyResponseFuture.java:257)
+		at org.asynchttpclient.netty.handler.AsyncHttpClientHandler.finishUpdate(AsyncHttpClientHandler.java:241)
+		at org.asynchttpclient.netty.handler.HttpHandler.handleChunk(HttpHandler.java:114)
+		at org.asynchttpclient.netty.handler.HttpHandler.handleRead(HttpHandler.java:143)
+		at org.asynchttpclient.netty.handler.AsyncHttpClientHandler.channelRead(AsyncHttpClientHandler.java:78)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:327)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:299)
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1372)
+		at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1235)
+		at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1284)
+		at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:510)
+		at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:449)
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:279)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+		at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:722)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:658)
+		at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:584)
+		at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:496)
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:995)
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+		at java.base/java.lang.Thread.run(Thread.java:833)
+	Caused by: javax.ws.rs.ClientErrorException: HTTP 412 Failed to find ownership for topic:persistent://external-repl-prop/pulsar-function-admin/metadata
+		at org.glassfish.jersey.client.JerseyInvocation.createExceptionForFamily(JerseyInvocation.java:985)
+		at org.glassfish.jersey.client.JerseyInvocation.convertToException(JerseyInvocation.java:967)
+		at org.glassfish.jersey.client.JerseyInvocation.access$700(JerseyInvocation.java:82)
+		... 63 more
+Caused by: [CIRCULAR REFERENCE: javax.ws.rs.ClientErrorException: HTTP 412 Failed to find ownership for topic:persistent://external-repl-prop/pulsar-function-admin/metadata]
+
+</pre></code>
+</details>
+

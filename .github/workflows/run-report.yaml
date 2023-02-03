@@ -39,10 +39,19 @@ jobs:
 
       - name: Report
         env:
-          GITHUB_TOKEN: ${{ secrets.PULSAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULSAR_TOKEN: ${{ secrets.PULSAR_TOKEN }}
           GITHUB_USER: ${{ secrets.PULSAR_TOKEN_USER }}
         run: |
-          echo "{\"githubUser\":\"${GITHUB_USER}\",\"githubToken\":\"${GITHUB_TOKEN}\"}" > ~/.github_download_tokens.json
+          echo "{\"githubUser\":\"${GITHUB_USER}\",\"githubToken\":\"${PULSAR_TOKEN}\"}" > ~/.github_download_tokens.json
           cd reporting
           ./gradlew runReport formatReport
           cat ~/pulsar-flakes/reports/*/report_counts.json
+          cd ..
+          title=$(date -v -7d +%Y-%m-%d)-to-$(date +%Y-%m-%d)
+          mv ~/pulsar-flakes/reports/*/ ./$title
+          git status
+          git add -A ./$title
+          git commit -am "Add report $name"
+          git pull --rebase origin/master
+          git push origin master

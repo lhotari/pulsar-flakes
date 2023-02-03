@@ -33,7 +33,9 @@ if (!tokenFile.exists()) {
     System.exit(1)
 }
 def tokens = new JsonSlurper().parse(tokenFile)
-
+def maxBuildAgeEnv = System.getenv("MAX_BUILD_AGE");
+maxBuildAge = maxBuildAgeEnv != null ? Duration.ofMillis(Long.parseLong(maxBuildAgeEnv)) : Duration.ofDays(7)
+println("Max build age: ${maxBuildAge}")
 baseUri = "https://api.github.com/repos/${SLUG}"
 
 // configures HttpBuilder-NG builder
@@ -251,7 +253,7 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
 // matches the SHA which got merged. This ensures that all found exceptions are real flakes since no changes
 // were made to the PR to make the tests pass later so that the PR was merged successfully.
 def handlePulls() {
-    def oldestUpdatedOrMergedTimeAccepted = Instant.now().minus(MAX_BUILD_AGE)
+    def oldestUpdatedOrMergedTimeAccepted = Instant.now().minus(maxBuildAge)
     def pullsUri = "${baseUri}/pulls?per_page=100&state=closed&sort=updated&direction=desc"
     while (pullsUri) {
         def (linkHeader, listing) = githubHttpBuilder.get {

@@ -43,13 +43,20 @@ jobs:
           PULSAR_TOKEN: ${{ secrets.PULSAR_TOKEN }}
           GITHUB_USER: ${{ secrets.PULSAR_TOKEN_USER }}
         run: |
+          #!/bin/bash
           echo "{\"githubUser\":\"${GITHUB_USER}\",\"githubToken\":\"${PULSAR_TOKEN}\"}" > ~/.github_download_tokens.json
+          days=1
+          time_millis=$(( 1000 * 60 * 60 * 24 * $days ))
           cd reporting
-          ./gradlew runReport formatReport
+          MAX_BUILD_AGE=$time_millis ./gradlew runReport formatReport
+          
           cat ~/pulsar-flakes/reports/*/report_counts.json
           cd ..
-          title=$(date -v -7d +%Y-%m-%d)-to-$(date +%Y-%m-%d)
+          title=$(date -v -${days}d +%Y-%m-%d)-to-$(date +%Y-%m-%d)
           mv ~/pulsar-flakes/reports/*/ ./$title
+          git config --global user.email "github@github.com"
+          git config --global user.name "Github Actions"
+          
           git status
           git add -A ./$title
           git commit -am "Add report $name"

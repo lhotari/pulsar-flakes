@@ -1,0 +1,21 @@
+{
+    "org.apache.pulsar.broker.transaction.pendingack.PendingAckPersistentTest.testDeleteUselessLogDataWhenSubCursorMoved": 38,
+    "org.apache.pulsar.metadata.ZKSessionTest.testReacquireLeadershipAfterSessionLost": 20,
+    "org.apache.pulsar.broker.service.persistent.PersistentDispatcherFailoverConsumerStreamingDispatcherTest.testAddRemoveConsumer": 18,
+    "org.apache.pulsar.metadata.ZKSessionTest.testReacquireLocksAfterSessionLost": 13,
+    "org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.testAddRemoveConsumer": 9,
+    "org.apache.pulsar.broker.stats.MetadataStoreStatsTest.testMetadataStoreStats": 8,
+    "org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource": 8,
+    "org.apache.pulsar.broker.service.PersistentTopicTest.testGetReplicationClusters": 4,
+    "org.apache.pulsar.broker.service.persistent.PersistentSubscriptionTest.setup": 3,
+    "org.apache.pulsar.tests.integration.functions.java.PulsarFunctionsJavaProcessTest.testJavaExclamationFunction": 2,
+    "org.apache.pulsar.broker.loadbalance.extensions.BrokerRegistryTest.testRegisterAndLookup": 2,
+    "org.apache.pulsar.functions.worker.PulsarFunctionMetadataStoreTest.setup": 1,
+    "org.apache.pulsar.client.api.TokenOauth2AuthenticatedProducerConsumerTest.testOAuth2TokenRefreshedWithoutReconnect": 1,
+    "org.apache.pulsar.broker.admin.v3.AdminApiTransactionMultiBrokerTest.testRedirectOfGetCoordinatorInternalStats": 1,
+    "org.apache.pulsar.proxy.server.ProxyRefreshAuthTest.testAuthDataRefresh": 1,
+    "org.apache.pulsar.broker.service.persistent.SimpleProducerConsumerTestStreamingDispatcherTest.stateCheck": 1,
+    "org.apache.pulsar.client.api.TopicReaderTest.testMultiReaderIsAbleToSeekWithTimeOnMiddleOfTopic": 1,
+    "org.apache.pulsar.broker.service.ReplicatorTest.activeBrokerParse": 1,
+    "org.apache.pulsar.broker.admin.AdminApi2Test.testDeleteNamespaceWithTopicPolicies": 1
+}

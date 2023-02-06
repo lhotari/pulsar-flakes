@@ -46,13 +46,13 @@ jobs:
           #!/bin/bash
           echo "{\"githubUser\":\"${GITHUB_USER}\",\"githubToken\":\"${PULSAR_TOKEN}\"}" > ~/.github_download_tokens.json
           days=1
+          title=$(date -v -${days}d +%Y-%m-%d 2> /dev/null || date -d "${days} days ago" +%Y-%m-%d)-to-$(date +%Y-%m-%d)
           time_millis=$(( 1000 * 60 * 60 * 24 * $days ))
           cd reporting
           MAX_BUILD_AGE=$time_millis ./gradlew runReport formatReport
           
           cat ~/pulsar-flakes/reports/*/report_counts.json
           cd ..
-          title=$(date -v -${days}d +%Y-%m-%d)-to-$(date +%Y-%m-%d)
           mv ~/pulsar-flakes/reports/*/ ./$title
           git config --global user.email "github@github.com"
           git config --global user.name "Github Actions"

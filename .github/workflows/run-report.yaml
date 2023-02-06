@@ -19,10 +19,10 @@
 
 name: Run report
 on:
-  workflow_dispatch: {}
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      days:
+        default: 1
 
 jobs:
   run-report:
@@ -50,7 +50,7 @@ jobs:
         run: |
           #!/bin/bash
           echo "{\"githubUser\":\"${GITHUB_USER}\",\"githubToken\":\"${PULSAR_TOKEN}\"}" > ~/.github_download_tokens.json
-          days=1
+          days=${{ github.event.inputs.days }}
           title=$(date -v -${days}d +%Y-%m-%d 2> /dev/null || date -d "${days} days ago" +%Y-%m-%d)-to-$(date +%Y-%m-%d)
           time_millis=$(( 1000 * 60 * 60 * 24 * $days ))
           cd reporting

@@ -1,0 +1,9 @@
+"org.apache.pulsar.broker.transaction.pendingack.PendingAckPersistentTest.testDeleteUselessLogDataWhenSubCursorMoved",10
+"org.apache.pulsar.metadata.ZKSessionTest.testReacquireLeadershipAfterSessionLost",6
+"org.apache.pulsar.broker.service.persistent.PersistentDispatcherFailoverConsumerStreamingDispatcherTest.testAddRemoveConsumer",5
+"org.apache.pulsar.tests.integration.functions.java.PulsarFunctionsJavaProcessTest.testJavaExclamationFunction",1
+"org.apache.pulsar.metadata.ZKSessionTest.testReacquireLocksAfterSessionLost",1
+"org.apache.pulsar.functions.worker.PulsarFunctionMetadataStoreTest.setup",1
+"org.apache.pulsar.client.api.TokenOauth2AuthenticatedProducerConsumerTest.testOAuth2TokenRefreshedWithoutReconnect",1
+"org.apache.pulsar.broker.stats.MetadataStoreStatsTest.testMetadataStoreStats",1
+"org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource",1

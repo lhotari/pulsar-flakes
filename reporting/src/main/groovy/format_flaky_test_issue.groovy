@@ -89,6 +89,19 @@ def toCsv(reportCounts) {
         "\"${testKey}\",${count}"
     }.join("\n")
 }
+def toReadme(reportCounts) {
+    def res = "# Summary\n\nTest method name | Failures | Report | Search issues | Fixed by |\n---------------- | -------- | ------ | ------------- | -------- |\n"
+
+    reportCounts.each { testKey, count ->
+        split = testKey.split("\\.")
+        println("split" + split)
+        className = split[split.length - 2]
+        methodName = split[split.length - 1]
+        res += "${className}.${methodName} | ${count} | [Report](./${testKey}.md) | [Issues](https://github.com/apache/pulsar/issues?q=${className}%20${methodName}) | |\n"
+    }
+    return res
+}
 
 new File(reportsDir, "report_counts.json").text = toJson(reportCounts)
 new File(reportsDir, "report_counts.csv").text = toCsv(reportCounts)
+new File(reportsDir, "README.md").text = toReadme(reportCounts)

@@ -1,0 +1,23 @@
+{
+    "org.apache.pulsar.broker.transaction.pendingack.PendingAckPersistentTest.testDeleteUselessLogDataWhenSubCursorMoved": 42,
+    "org.apache.pulsar.metadata.ZKSessionTest.testReacquireLeadershipAfterSessionLost": 23,
+    "org.apache.pulsar.metadata.ZKSessionTest.testReacquireLocksAfterSessionLost": 19,
+    "org.apache.pulsar.broker.service.persistent.PersistentDispatcherFailoverConsumerStreamingDispatcherTest.testAddRemoveConsumer": 19,
+    "org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.testAddRemoveConsumer": 11,
+    "org.apache.pulsar.broker.stats.MetadataStoreStatsTest.testMetadataStoreStats": 9,
+    "org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource": 9,
+    "org.apache.pulsar.broker.service.PersistentTopicTest.testGetReplicationClusters": 4,
+    "org.apache.pulsar.tests.integration.functions.java.PulsarFunctionsJavaProcessTest.testJavaExclamationFunction": 3,
+    "org.apache.pulsar.broker.service.persistent.PersistentSubscriptionTest.setup": 3,
+    "org.apache.pulsar.broker.loadbalance.extensions.BrokerRegistryTest.testRegisterAndLookup": 2,
+    "org.apache.pulsar.broker.admin.AdminApi2Test.testDeleteNamespaceWithTopicPolicies": 2,
+    "org.apache.pulsar.broker.service.InactiveTopicDeleteTest.testDeleteWhenNoSubscriptionsWithMultiConfig": 1,
+    "org.apache.pulsar.functions.worker.PulsarFunctionMetadataStoreTest.setup": 1,
+    "org.apache.pulsar.broker.service.RackAwareTest.testRackUpdate": 1,
+    "org.apache.pulsar.client.api.TokenOauth2AuthenticatedProducerConsumerTest.testOAuth2TokenRefreshedWithoutReconnect": 1,
+    "org.apache.pulsar.broker.admin.v3.AdminApiTransactionMultiBrokerTest.testRedirectOfGetCoordinatorInternalStats": 1,
+    "org.apache.pulsar.proxy.server.ProxyRefreshAuthTest.testAuthDataRefresh": 1,
+    "org.apache.pulsar.broker.service.persistent.SimpleProducerConsumerTestStreamingDispatcherTest.stateCheck": 1,
+    "org.apache.pulsar.client.api.TopicReaderTest.testMultiReaderIsAbleToSeekWithTimeOnMiddleOfTopic": 1,
+    "org.apache.pulsar.broker.service.ReplicatorTest.activeBrokerParse": 1
+}

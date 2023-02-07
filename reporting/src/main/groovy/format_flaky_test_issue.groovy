@@ -39,8 +39,17 @@ testExceptionsDirectory.traverse(type: FileType.FILES, nameFilter: ~/.*\.json$/)
 }
 
 def reportCounts = [:]
+createIssuesBody = [:]
 exceptionsForTest.sort { it.value.size() }.reverseEach { testKey, allExceptions ->
     if (allExceptions.size() >= minFailures) {
+        def issueBody = """
+### Search before asking
+
+- [X] I searched in the [issues](https://github.com/apache/pulsar/issues) and found nothing similar.
+
+### Example failures
+
+"""
         reportCounts.put(testKey, allExceptions.size())
         def reportFile = new File(reportsDir, "${testKey}.md")
         reportFile.withPrintWriter { out ->
@@ -61,6 +70,7 @@ ${allExceptions[0].testClass} is flaky. The ${allExceptions[0].testMethod} test 
                     !beforeThis
                 }.take(15).join('\n')
             }
+            def issueBodyAdded = false
             allExceptions.groupBy { it.shortException }.each { shortException, values ->
                 out.println "```\n$shortException\n```\n"
 
@@ -68,6 +78,9 @@ ${allExceptions[0].testClass} is flaky. The ${allExceptions[0].testMethod} test 
                 values.groupBy { it.textLines.drop(1).join('\n') }.each { longException, items ->
                     items.sort { it.timestamp }.reverse().each { item ->
                         out.println "[example failure ${item.timestamp}](${item.url})  "
+                        if (!issueBodyAdded) {
+                            issueBody += "- [${item.timestamp}](${item.url}) \n"
+                        }
                     }
                     out.println """
 
@@ -78,9 +91,28 @@ ${longException}
 </pre></code>
 </details>
 """
+                    if (!issueBodyAdded) {
+                        issueBody += """
+
+### Exception stacktrace
+
+```
+${longException}
+```
+"""
+                        issueBodyAdded = true
+                    }
                 }
             }
         }
+        issueBody += """
+
+### Are you willing to submit a PR?
+
+- [ ] I'm willing to submit a PR!
+"""
+        createIssuesBody.put(testKey, issueBody)
+
     }
 }
 
@@ -89,15 +121,19 @@ def toCsv(reportCounts) {
         "\"${testKey}\",${count}"
     }.join("\n")
 }
+
+
 def toReadme(reportCounts) {
-    def res = "# Summary\n\nTest method name | Failures | Report | Search issues | Fixed by |\n---------------- | -------- | ------ | ------------- | -------- |\n"
+    def res = "# Summary\n\nTest method name | Failures | Report | Search issues | Create issue | Fixed by |\n---------------- | -------- | ------ | ------------- | ------------ | -------- |\n"
 
     reportCounts.each { testKey, count ->
         split = testKey.split("\\.")
-        println("split" + split)
         className = split[split.length - 2]
         methodName = split[split.length - 1]
-        res += "${className}.${methodName} | ${count} | [Report](./${testKey}.md) | [Issues](https://github.com/apache/pulsar/issues?q=${className}%20${methodName}) | |\n"
+        encodedIssueTitle = java.net.URLEncoder.encode("Flaky-test: ${className}.${methodName}", "UTF-8")
+        encodedIssueBody = java.net.URLEncoder.encode(createIssuesBody.get(testKey), "UTF-8")
+        createIssueUrl = "https://github.com/apache/pulsar/issues/new?labels=flaky-tests&title=${encodedIssueTitle}&body=${encodedIssueBody}"
+        res += "${className}.${methodName} | ${count} | [Report](./${testKey}.md) | [Issues](https://github.com/apache/pulsar/issues?q=${className}%20${methodName}) | [Create issue](${createIssueUrl}) | |\n"
     }
     return res
 }
@@ -105,3 +141,4 @@ def toReadme(reportCounts) {
 new File(reportsDir, "report_counts.json").text = toJson(reportCounts)
 new File(reportsDir, "report_counts.csv").text = toCsv(reportCounts)
 new File(reportsDir, "README.md").text = toReadme(reportCounts)
+println("Reports are in ${reportsDir}")

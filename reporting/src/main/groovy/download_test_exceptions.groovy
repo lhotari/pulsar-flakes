@@ -15,8 +15,6 @@ import java.time.format.DateTimeParseException
 
 import static groovyx.net.http.ApacheHttpBuilder.configure as configureHttpBuilder
 
-MAX_BUILD_AGE = Duration.ofHours(6)
-
 SLUG = 'apache/pulsar'
 
 def toJson(object) {
@@ -34,7 +32,7 @@ if (!tokenFile.exists()) {
 }
 def tokens = new JsonSlurper().parse(tokenFile)
 def maxBuildAgeEnv = System.getenv("MAX_BUILD_AGE");
-maxBuildAge = maxBuildAgeEnv != null ? Duration.ofMillis(Long.parseLong(maxBuildAgeEnv)) : Duration.ofDays(7)
+maxBuildAge = maxBuildAgeEnv != null ? Duration.ofMillis(Long.parseLong(maxBuildAgeEnv)) : Duration.ofDays(1)
 println("Max build age: ${maxBuildAge}")
 baseUri = "https://api.github.com/repos/${SLUG}"
 

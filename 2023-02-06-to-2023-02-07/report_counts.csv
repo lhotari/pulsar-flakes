@@ -1,5 +1,0 @@
-"org.apache.pulsar.broker.transaction.pendingack.PendingAckPersistentTest.testDeleteUselessLogDataWhenSubCursorMoved",2
-"org.apache.pulsar.metadata.ZKSessionTest.testReacquireLeadershipAfterSessionLost",1
-"org.apache.pulsar.metadata.ZKSessionTest.testReacquireLocksAfterSessionLost",1
-"org.apache.pulsar.broker.service.persistent.PersistentDispatcherFailoverConsumerStreamingDispatcherTest.testAddRemoveConsumer",1
-"org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.testAddRemoveConsumer",1

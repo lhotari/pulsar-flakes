@@ -1,0 +1,5 @@
+{
+    "org.apache.pulsar.metadata.ZKSessionTest.testReacquireLocksAfterSessionLost": 1,
+    "org.apache.pulsar.functions.worker.PulsarFunctionMetadataStoreTest.setup": 1,
+    "org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource": 1
+}

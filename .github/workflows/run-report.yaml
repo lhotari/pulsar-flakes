@@ -61,7 +61,7 @@ jobs:
           cat ~/pulsar-flakes/reports/*/report_counts.json
           cd ..
           mv ~/pulsar-flakes/reports/*/ ./$title
-          sed -i '' -- "s+BASE_REPORT_URL_PLACEHOLDER+${report_base_url}+g" ./$title/summary.googlesheet.csv
+          sed -i -- "s+BASE_REPORT_URL_PLACEHOLDER+${report_base_url}+g" ./$title/summary.googlesheet.csv
           git config --global user.email "github@github.com"
           git config --global user.name "Github Actions"
           

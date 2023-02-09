@@ -122,6 +122,24 @@ def toCsv(reportCounts) {
     }.join("\n")
 }
 
+def gsheetLink(text, url) {
+    return "=HYPERLINK(\"${url}\",\"${text}\")"
+}
+
+def toGSheetCsv(reportCounts) {
+    def res = "Test method name\tFailures\tReport\tSearch issues\tCreate issue\tFixed by\n"
+
+    reportCounts.each { testKey, count ->
+        split = testKey.split("\\.")
+        className = split[split.length - 2]
+        methodName = split[split.length - 1]
+        encodedIssueTitle = java.net.URLEncoder.encode("Flaky-test: ${className}.${methodName}", "UTF-8")
+        encodedIssueBody = java.net.URLEncoder.encode(createIssuesBody.get(testKey), "UTF-8")
+        createIssueUrl = "https://github.com/apache/pulsar/issues/new?labels=flaky-tests&title=${encodedIssueTitle}&body=${encodedIssueBody}"
+        res += "${className}.${methodName}\t${count}\t${gsheetLink('Report', 'BASE_REPORT_URL_PLACEHOLDER/' + testKey + '.md')}\t${gsheetLink('Issues', "https://github.com/apache/pulsar/issues?q=${className}%20${methodName}")}\t${gsheetLink('Create issue', createIssueUrl)}\t\n"
+    }
+    return res
+}
 
 def toReadme(reportCounts) {
     def res = "# Summary\n\nTest method name | Failures | Report | Search issues | Create issue | Fixed by |\n---------------- | -------- | ------ | ------------- | ------------ | -------- |\n"
@@ -140,5 +158,6 @@ def toReadme(reportCounts) {
 
 new File(reportsDir, "report_counts.json").text = toJson(reportCounts)
 new File(reportsDir, "report_counts.csv").text = toCsv(reportCounts)
+new File(reportsDir, "summary.googlesheet.csv").text = toGSheetCsv(reportCounts)
 new File(reportsDir, "README.md").text = toReadme(reportCounts)
 println("Reports are in ${reportsDir}")

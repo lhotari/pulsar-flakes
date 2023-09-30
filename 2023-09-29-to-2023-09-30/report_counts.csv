@@ -1,0 +1,11 @@
+"org.apache.pulsar.common.nar.NarUnpackerTest.deleteSampleZipFile",3
+"org.apache.pulsar.compaction.StrategicCompactionTest.testDispatcherMaxReadSizeBytes",3
+"org.apache.bookkeeper.replication.TestReplicationWorker.setUp",3
+"org.apache.pulsar.compaction.CompactionTest.testDispatcherMaxReadSizeBytes",2
+"org.apache.bookkeeper.replication.AuditorBookieTest.setUp",2
+"org.apache.pulsar.common.nar.NarUnpackerTest.shouldExtractFilesOnceInDifferentProcess",2
+"org.apache.bookkeeper.replication.AuditorPeriodicCheckTest.setUp",1
+"org.apache.bookkeeper.replication.TestAutoRecoveryAlongWithBookieServers.setUp",1
+"org.apache.bookkeeper.replication.BookieAutoRecoveryTest.setUp",1
+"org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.testAddRemoveConsumer",1
+"org.apache.bookkeeper.replication.AuditorLedgerCheckerTest.setUp",1

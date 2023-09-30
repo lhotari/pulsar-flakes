@@ -26,7 +26,7 @@ def toJson(object) {
 def tokenFile = new File(System.getProperty("user.home"), ".github_download_tokens.json")
 if (!tokenFile.exists()) {
     tokenFile.text = toJson([githubUser  : 'github user',
-                             githubToken : 'personal access token for user (no scopes required)'])
+                             githubToken : 'personal access token for user (workflow scope required)'])
     println "Please enter credentials to ${tokenFile.absolutePath}"
     System.exit(1)
 }

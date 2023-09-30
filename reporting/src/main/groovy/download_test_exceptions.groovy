@@ -201,7 +201,7 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                                 }
                             }
 
-                            if (testException.testMethod.endsWith("-suite")) {
+                            if (testException.testMethod?.endsWith("-suite")) {
                                 def realTestClassAndMethod = testException.text.readLines().takeWhile { it }.reverse().collect { String l ->
                                     l.find("at (org\\.apache\\.pulsar\\..*?)\\(") { it[1] }
                                 }.find { it }

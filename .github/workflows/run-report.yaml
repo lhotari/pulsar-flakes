@@ -70,3 +70,11 @@ jobs:
           git commit -am "Add report $name"
           git pull --rebase origin master
           git push origin master
+
+      - name: Upload log files
+        uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: pulsar-flakes
+          path: ~/pulsar-flakes
+          retention-days: 7

@@ -215,9 +215,9 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                                     threaddump: threaddumpException
                             ]
                             if (testfailureException) {
-                                currentLine.find(~/\[ERROR\] (.*?)\((.*?)\)  /) {
-                                    testException.testMethod = it[1] - ~/\[.*?\]/
-                                    testException.testClass = it[2]
+                                currentLine.find(~/\[ERROR\] (.*)\.(.*?)  Time elapsed/) {
+                                    testException.testClass = it[1]
+                                    testException.testMethod = it[2] - ~/\[.*?\]/
                                 }
                             }
                             testException.line = currentStepLineNumber

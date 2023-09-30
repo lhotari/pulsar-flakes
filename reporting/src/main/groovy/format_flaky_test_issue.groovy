@@ -30,7 +30,7 @@ testExceptionsDirectory.traverse(type: FileType.FILES, nameFilter: ~/.*\.json$/)
         def pos = realTestClassAndMethod?.lastIndexOf('.') ?: -1
         if (pos > -1) {
             testException.testClass = realTestClassAndMethod.substring(0, pos)
-            testException.testMethod = realTestClassAndMethod.substring(pos + 1)
+            testException.testMethod = realTestClassAndMethod.substring(pos + 1) - ~/\[.*?\]/
         }
     }
     def testKey = "${testException.testClass}.${testException.testMethod}".toString()

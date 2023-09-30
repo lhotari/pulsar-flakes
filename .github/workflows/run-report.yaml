@@ -23,6 +23,8 @@ on:
     inputs:
       days:
         default: 1
+      upload_logs:
+        default: 0
 
 jobs:
   run-report:
@@ -73,7 +75,7 @@ jobs:
 
       - name: Upload log files
         uses: actions/upload-artifact@v3
-        if: ${{ always() }}
+        if: ${{ (always() && github.event.inputs.upload_logs != '0') || failure() }}
         with:
           name: pulsar-flakes
           path: ~/pulsar-flakes

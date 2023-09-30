@@ -200,6 +200,21 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                                     }
                                 }
                             }
+
+                            if (testException.testMethod.endsWith("-suite")) {
+                                def realTestClassAndMethod = testException.text.readLines().takeWhile { it }.reverse().collect { String l ->
+                                    l.find("at (org\\.apache\\.pulsar\\..*?)\\(") { it[1] }
+                                }.find { it }
+                                if (!realTestClassAndMethod) {
+                                    realTestClassAndMethod = testException.text.find("Method (.*?)\\(\\) didn't finish within the time-out") { it[1] }
+                                }
+                                def pos = realTestClassAndMethod?.lastIndexOf('.') ?: -1
+                                if (pos > -1) {
+                                    testException.testClass = realTestClassAndMethod.substring(0, pos)
+                                    testException.testMethod = realTestClassAndMethod.substring(pos + 1) - ~/\[.*?\]/
+                                }
+                            }
+
                             storeTestException(testException)
                             testException = null
                         }

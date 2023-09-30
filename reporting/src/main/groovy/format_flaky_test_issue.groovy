@@ -20,19 +20,6 @@ def minFailures = args.length > 1 ? args[1] as Integer : 1
 def exceptionsForTest = [:]
 testExceptionsDirectory.traverse(type: FileType.FILES, nameFilter: ~/.*\.json$/) { file ->
     def testException = new JsonSlurper().parse(file)
-    if (testException.testMethod.endsWith("-suite")) {
-        def realTestClassAndMethod = testException.text.readLines().takeWhile { it }.reverse().collect { String line ->
-            line.find("at (org\\.apache\\.pulsar\\..*?)\\(") { it[1] }
-        }.find { it }
-        if (!realTestClassAndMethod) {
-            realTestClassAndMethod = testException.text.find("Method (.*?)\\(\\) didn't finish within the time-out") { it[1] }
-        }
-        def pos = realTestClassAndMethod?.lastIndexOf('.') ?: -1
-        if (pos > -1) {
-            testException.testClass = realTestClassAndMethod.substring(0, pos)
-            testException.testMethod = realTestClassAndMethod.substring(pos + 1) - ~/\[.*?\]/
-        }
-    }
     def testKey = "${testException.testClass}.${testException.testMethod}".toString()
     def allExceptions = exceptionsForTest.computeIfAbsent(testKey, { k -> [] })
     allExceptions << testException

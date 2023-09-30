@@ -10,7 +10,7 @@ Navigating to the file can be done with the file search feature by clicking `t` 
 1. Fork this repository
 2. Set the following secrets in your forked repository:
     * `PULSAR_TOKEN` - A GitHub token with read access to the Apache Pulsar repository
-    * `GITHUB_USER` - The Github username of the user that owns the token
+    * `PULSAR_TOKEN_USER` - The Github username of the user that owns the token
 3. Navigate to the `Actions` tab in your forked repository
 4. Select the `Run Report` workflow
 5. Click `Run workflow` setting the desired date range

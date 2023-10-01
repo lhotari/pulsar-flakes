@@ -313,10 +313,10 @@ boolean TESTMODE = System.getenv("TEST_REPORTING_TEST_MODE")
 //TESTMODE = true
 if (TESTMODE) {
     def testInputDir = new File('src/main/test_input')
-    processLogFile(new File(testInputDir, 'log_with_threaddumps.txt'),
+    processLogFile(new File(testInputDir, 'log.txt'),
             new JsonSlurper().parse(new File(testInputDir, 'job.json')),
             new JsonSlurper().parse(new File(testInputDir, 'run.json')),
-            new JsonSlurper().parse(new File(testInputDir, 'pull.json')), 1)
+            new JsonSlurper().parse(new File(testInputDir, 'pull.json')), 4)
 } else {
     handlePulls()
 }

@@ -194,7 +194,7 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                                 for (exceptionline in testException.text.readLines().reverse()) {
                                     if (exceptionline.find(~/\s+at (org\.apache\.pulsar\..*)\.(.*?)\(/) {
                                         testException.testClass = it[1]
-                                        testException.testMethod = it[2] - ~/\[.*?\]/
+                                        testException.testMethod = it[2]
                                     }) {
                                         break
                                     }
@@ -211,7 +211,7 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                                 def pos = realTestClassAndMethod?.lastIndexOf('.') ?: -1
                                 if (pos > -1) {
                                     testException.testClass = realTestClassAndMethod.substring(0, pos)
-                                    testException.testMethod = realTestClassAndMethod.substring(pos + 1) - ~/\[.*?\]/
+                                    testException.testMethod = realTestClassAndMethod.substring(pos + 1)
                                 }
                             }
 
@@ -230,9 +230,9 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                                     threaddump: threaddumpException
                             ]
                             if (testfailureException) {
-                                currentLine.find(~/\[ERROR\] (.*)\.(.*?)  Time elapsed/) {
+                                currentLine.find(~/\[ERROR\] ([^\[(]*)\.([^\[(]*)(.*?)  Time elapsed/) {
                                     testException.testClass = it[1]
-                                    testException.testMethod = it[2] - ~/\[.*?\]/
+                                    testException.testMethod = it[2]
                                 }
                             }
                             testException.line = currentStepLineNumber

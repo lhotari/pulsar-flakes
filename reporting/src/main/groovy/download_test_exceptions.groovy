@@ -3,10 +3,10 @@ import groovy.json.JsonSlurper
 import groovyx.net.http.FromServer
 import groovyx.net.http.NativeHandlers
 import groovyx.net.http.optional.Download
+import jakarta.ws.rs.core.Link
 import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.impl.client.StandardHttpRequestRetryHandler
 
-import javax.ws.rs.core.Link
 import java.time.Duration
 import java.time.Instant
 import java.time.ZonedDateTime

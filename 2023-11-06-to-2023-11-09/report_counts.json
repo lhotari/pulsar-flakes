@@ -1,0 +1,6 @@
+{
+    "org.apache.pulsar.client.api.NonPersistentTopicTest.testMsgDropStat": 1,
+    "org.apache.pulsar.tests.integration.cli.ClusterMetadataTearDownTest.stateCheck": 1,
+    "org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.tearDown": 1,
+    "org.apache.pulsar.tests.integration.cli.ClusterMetadataTearDownTest.testDeleteCluster": 1
+}

@@ -9,6 +9,7 @@ import org.apache.http.impl.client.StandardHttpRequestRetryHandler
 
 import java.time.Duration
 import java.time.Instant
+import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
@@ -83,6 +84,8 @@ def parseLinkHeader(FromServer resp) {
 failureReportsDir = new File(System.getProperty("user.home"), 'pulsar-flakes')
 pullsDirectory = new File(failureReportsDir, 'pulls')
 pullsDirectory.mkdirs()
+buildsDirectory = new File(failureReportsDir, 'builds')
+buildsDirectory.mkdirs()
 testExceptionsDirectory = new File(failureReportsDir, 'test-exceptions')
 testExceptionsDirectory.mkdirs()
 testExceptionUniquenessCheckSet = new HashSet()
@@ -110,10 +113,15 @@ def storeTestException(testException) {
     }
 }
 
-def checkLogs(runInfo, prInfo, pullDirectory, oldestStartedAtAccepted, attemptNumber) {
+def checkLogs(runInfo, prInfo, pullDirectory, oldestStartedAtAccepted, attemptNumber, onlyFailed = false) {
     def id = runInfo.id
 
-    println "Checking logs for run ${id} attempt ${attemptNumber}, PR ${prInfo.html_url}"
+    print "Checking logs for run ${id} attempt ${attemptNumber} ${runInfo.html_url}"
+    if (prInfo) {
+        println ", PR ${prInfo.html_url}"
+    } else {
+        println()
+    }
 
     def jobs
 
@@ -130,7 +138,8 @@ def checkLogs(runInfo, prInfo, pullDirectory, oldestStartedAtAccepted, attemptNu
         jobsDirectory.mkdirs()
 
         jobs.jobs.each { job ->
-            if (job.head_sha == prInfo.head.sha && job.status == 'completed') {
+            if ((prInfo == null || job.head_sha == prInfo.head.sha) && job.status == 'completed'
+                    && (!onlyFailed || (job.conclusion == 'failure' || job.conclusion == 'timed_out'))) {
                 def startedAt = job.started_at ? Instant.parse(job.started_at) : null
                 if (startedAt && startedAt.isAfter(oldestStartedAtAccepted)) {
                     println "Handling job ${job.id}"
@@ -324,6 +333,25 @@ def handlePulls() {
     }
 }
 
+def handleMasterBranchBuilds(workflowFile = 'pulsar-ci.yaml') {
+    def oldestBuildTimeAccepted = Instant.now().minus(maxBuildAge)
+    def oldestDateString = oldestBuildTimeAccepted.atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ISO_LOCAL_DATE)
+
+    def runs = githubHttpBuilder.get {
+        request.uri = "${baseUri}/actions/workflows/${workflowFile}/runs?branch=master&exclude_pull_requests=true&status=completed&per_page=100&created=${URLEncoder.encode('>=' + oldestDateString, 'UTF-8')}"
+    }
+    def workflowBuildDirectory = new File(buildsDirectory, "${workflowFile - '.yaml'}")
+    runs.workflow_runs.each { runInfo ->
+        def buildDirectory = new File(workflowBuildDirectory, "${runInfo.id}")
+        buildDirectory.mkdirs()
+        new File(buildDirectory, "run.json").text = toJson(runInfo)
+        int maxAttemptNumber = runInfo.run_attempt as Integer
+        for (int attemptNumber=1; attemptNumber <= maxAttemptNumber; attemptNumber++) {
+            checkLogs(runInfo, null, buildDirectory, oldestBuildTimeAccepted, attemptNumber, true)
+        }
+    }
+}
+
 boolean TESTMODE = System.getenv("TEST_REPORTING_TEST_MODE")
 //TESTMODE = true
 if (TESTMODE) {
@@ -333,5 +361,13 @@ if (TESTMODE) {
             new JsonSlurper().parse(new File(testInputDir, 'run.json')),
             new JsonSlurper().parse(new File(testInputDir, 'pull.json')), 4)
 } else {
-    handlePulls()
+    switch (System.getenv("TEST_REPORTING_SOURCE")) {
+        case 'master':
+            handleMasterBranchBuilds('pulsar-ci.yaml')
+            handleMasterBranchBuilds('pulsar-ci-flaky.yaml')
+            break
+        case 'pulls':
+        default:
+            handlePulls()
+    }
 }

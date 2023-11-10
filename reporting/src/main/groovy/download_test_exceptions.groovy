@@ -32,7 +32,22 @@ if (!tokenFile.exists()) {
 }
 def tokens = new JsonSlurper().parse(tokenFile)
 def maxBuildAgeEnv = System.getenv("MAX_BUILD_AGE");
-maxBuildAge = maxBuildAgeEnv != null ? Duration.ofMillis(Long.parseLong(maxBuildAgeEnv)) : Duration.ofDays(1)
+maxBuildAge = null
+if (maxBuildAgeEnv != null) {
+    if (maxBuildAgeEnv =~ /\d+$/) {
+        // assume milliseconds
+        maxBuildAge = Duration.ofMillis(Long.parseLong(maxBuildAgeEnv))
+    } else if (maxBuildAgeEnv =~ /\d+[smhd]$/) {
+        // support suffixes s, m, h, d for seconds, minutes, hours, days
+        maxBuildAge = Duration.parse('P' + maxBuildAgeEnv)
+    } else if (maxBuildAgeEnv.startsWith('P')) {
+        // support ISO-8601 duration format
+        maxBuildAge = Duration.parse(maxBuildAgeEnv)
+    }
+}
+if (maxBuildAge == null) {
+    maxBuildAge = Duration.ofDays(1)
+}
 println("Max build age: ${maxBuildAge}")
 baseUri = "https://api.github.com/repos/${SLUG}"
 

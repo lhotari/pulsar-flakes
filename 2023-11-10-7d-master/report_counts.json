@@ -1,0 +1,13 @@
+{
+    "org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource": 4,
+    "org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.testAddRemoveConsumer": 1,
+    "org.apache.pulsar.client.api.BrokerServiceLookupTest.testLookupConnectionNotCloseIfGetUnloadingExOrMetadataEx": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.testSplitBundleAdminAPI": 1,
+    "org.apache.pulsar.client.api.KeySharedSubscriptionTest.testContinueDispatchMessagesWhenMessageDelayed": 1,
+    "org.apache.pulsar.client.api.TopicReaderTest.testMultiReaderIsAbleToSeekWithTimeOnMiddleOfTopic": 1,
+    "org.apache.pulsar.broker.service.TopicTerminationTest.testTerminateWhilePublishing": 1,
+    "org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testWssSendAndWssConsumeWithEncryption": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.testGetMetrics": 1,
+    "org.apache.pulsar.tests.integration.loadbalance.ExtensibleLoadManagerTest.testStopBroker": 1,
+    "org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError": 1
+}

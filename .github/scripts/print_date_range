@@ -1,0 +1,32 @@
+#!/usr/bin/env -S java --source 11
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.regex.Pattern;
+
+public class PrintDateRange {
+    public static void main(String[] args) {
+        String maxBuildAgeEnv = System.getenv("MAX_BUILD_AGE");
+        Duration maxBuildAge = null;
+        if (maxBuildAgeEnv != null) {
+            if (Pattern.compile("\\d+$").matcher(maxBuildAgeEnv).matches()) {
+                // assume milliseconds
+                maxBuildAge = Duration.ofMillis(Long.parseLong(maxBuildAgeEnv));
+            } else if (Pattern.compile("\\d+[smhd]$").matcher(maxBuildAgeEnv).matches()) {
+                // support suffixes s, m, h, d for seconds, minutes, hours, days
+                maxBuildAge = Duration.parse('P' + maxBuildAgeEnv);
+            } else if (maxBuildAgeEnv.startsWith("P")) {
+                // support ISO-8601 duration format
+                maxBuildAge = Duration.parse(maxBuildAgeEnv);
+            }
+        }
+        if (maxBuildAge == null) {
+            maxBuildAge = Duration.ofDays(1);
+        }
+        Instant oldestBuildTimeAccepted = Instant.now().minus(maxBuildAge);
+        String oldestDateString = oldestBuildTimeAccepted.atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ISO_LOCAL_DATE);
+        System.out.println(oldestDateString + "-to-" + LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
+    }
+}

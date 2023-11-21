@@ -1,0 +1,2 @@
+"org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.testAddRemoveConsumer",1
+"org.apache.pulsar.client.api.SimpleProducerConsumerStatTest.testPartitionTopicStats",1

@@ -22,7 +22,15 @@ on:
   workflow_dispatch:
     inputs:
       max_build_age:
-        default: 1d
+        required: true
+        default: 7d
+      test_reporting_source:
+        required: true
+        type: choice
+        options:
+          - 'pulls'
+          - 'master'
+        default: 'pulls'
       upload_logs:
         default: 0
 
@@ -50,10 +58,15 @@ jobs:
           PULSAR_TOKEN: ${{ secrets.PULSAR_TOKEN }}
           GITHUB_USER: ${{ secrets.PULSAR_TOKEN_USER }}
           MAX_BUILD_AGE: ${{ github.event.inputs.max_build_age }}
+          TEST_REPORTING_SOURCE: ${{ github.event.inputs.test_reporting_source }}
         run: |
           #!/bin/bash
           echo "{\"githubUser\":\"${GITHUB_USER}\",\"githubToken\":\"${PULSAR_TOKEN}\"}" > ~/.github_download_tokens.json
-          title=$(./.github/scripts/print_date_range)
+          if [[ "$TEST_REPORTING_SOURCE" == "pulls" ]]; then
+            title=$(./.github/scripts/print_date_range)
+          else 
+            title="$(date -I)-${MAX_BUILD_AGE}-${TEST_REPORTING_SOURCE}"
+          fi
           cd reporting
           ./gradlew runReport formatReport
           current_repo=${{ github.repository }}

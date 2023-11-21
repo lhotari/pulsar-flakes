@@ -1,0 +1,11 @@
+"org.apache.pulsar.compaction.StrategicCompactionTest.testCompactionDuplicate",3
+"org.apache.pulsar.metadata.LeaderElectionTest.revalidateLeaderWithinSameSession",2
+"org.apache.bookkeeper.mledger.impl.ManagedLedgerTest.testManagedLedgerRollOverIfFull",2
+"org.apache.pulsar.tests.integration.backwardscompatibility.ClientTest2_4.setup",1
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression",1
+"org.apache.pulsar.bookie.rackawareness.IsolatedBookieEnsemblePlacementPolicyTest.testMetadataStoreCases",1
+"org.apache.pulsar.broker.authentication.SaslAuthenticateTest.testSaslOnlyAuthFirstStage",1
+"org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError",1
+"org.apache.pulsar.client.impl.TransactionEndToEndWithoutBatchIndexAckTest.testDelayedTransactionMessages",1
+"org.apache.pulsar.client.api.SimpleProducerConsumerStatTest.testPartitionTopicStats",1
+"org.apache.pulsar.metadata.MetadataStoreTest.testExistsDistributed",1

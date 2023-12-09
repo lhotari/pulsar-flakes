@@ -1,0 +1,14 @@
+"org.apache.pulsar.tests.integration.cli.PerfToolTest.testConsume",4
+"org.apache.pulsar.client.api.BrokerServiceLookupTest.testLookupConnectionNotCloseIfGetUnloadingExOrMetadataEx",2
+"org.apache.pulsar.tests.integration.cli.PerfToolTest.testRead",2
+"org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.tearDown",2
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression",1
+"org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError",1
+"org.apache.pulsar.tests.integration.offload.TestS3Offload.testPublishOffloadAndConsumeDeletionLag",1
+"org.apache.pulsar.metadata.MetadataStoreTest.testThreadSwitchOfZkMetadataStore",1
+"org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.initializeState",1
+"org.apache.pulsar.tests.integration.loadbalance.ExtensibleLoadManagerTest.testStopBroker",1
+"org.apache.pulsar.io.kinesis.KinesisSinkTest.testWrite",1
+"org.apache.pulsar.metadata.LeaderElectionTest.revalidateLeaderWithinSameSession",1
+"org.apache.pulsar.broker.service.plugin.FilterEntryTest.testFilter",1
+"org.apache.pulsar.broker.service.ReplicatorTest.testCleanupTopic",1

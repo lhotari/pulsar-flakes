@@ -1,0 +1,10 @@
+{
+    "org.apache.pulsar.metadata.LeaderElectionTest.revalidateLeaderWithinSameSession": 4,
+    "org.apache.pulsar.tests.integration.cli.PerfToolTest.testRead": 2,
+    "org.apache.pulsar.tests.integration.cli.PerfToolTest.testConsume": 2,
+    "org.apache.pulsar.client.api.BrokerServiceLookupTest.testLookupConnectionNotCloseIfGetUnloadingExOrMetadataEx": 2,
+    "org.apache.pulsar.bookie.rackawareness.IsolatedBookieEnsemblePlacementPolicyTest.testMetadataStoreCases": 1,
+    "org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.tearDown": 1,
+    "org.apache.pulsar.metadata.MetadataStoreTest.testThreadSwitchOfZkMetadataStore": 1,
+    "org.apache.pulsar.io.kinesis.KinesisSinkTest.testWrite": 1
+}

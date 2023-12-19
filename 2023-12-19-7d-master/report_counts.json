@@ -1,0 +1,12 @@
+{
+    "org.apache.pulsar.client.api.SubscriptionMessageDispatchThrottlingTest.testClosingRateLimiter": 9,
+    "org.apache.pulsar.tests.integration.loadbalance.ExtensibleLoadManagerTest.testIsolationPolicy": 2,
+    "org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError": 1,
+    "org.apache.pulsar.broker.service.PersistentTopicTest.setup": 1,
+    "org.apache.pulsar.client.impl.TransactionEndToEndWithoutBatchIndexAckTest.testDelayedTransactionMessages": 1,
+    "org.apache.pulsar.tests.integration.cli.ClusterMetadataTearDownTest.testDeleteCluster": 1,
+    "org.apache.pulsar.client.impl.TransactionEndToEndTest.testDelayedTransactionMessages": 1,
+    "org.apache.pulsar.broker.admin.AdminApiOffloadTest.testOffloadV2": 1,
+    "org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.setup": 1,
+    "org.apache.pulsar.metadata.LeaderElectionTest.revalidateLeaderWithinSameSession": 1
+}

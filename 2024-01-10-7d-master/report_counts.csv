@@ -1,0 +1,11 @@
+"org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation",2
+"org.apache.pulsar.broker.TopicEventsListenerTest.cleanupTest",2
+"org.apache.pulsar.broker.service.plugin.FilterEntryTest.testFilter",2
+"org.apache.pulsar.client.impl.MultiTopicsReaderTest.testMultiNonPartitionedTopicWithRollbackDuration",1
+"org.apache.pulsar.tests.integration.loadbalance.ExtensibleLoadManagerTest.startBroker",1
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryption",1
+"org.apache.pulsar.functions.instance.JavaInstanceTest.testAsyncFunctionMaxPending",1
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression",1
+"org.apache.pulsar.client.api.SimpleProducerConsumerTest.testMultiTopicsConsumerImplPauseForManualSubscription",1
+"org.apache.pulsar.broker.admin.AdminApiOffloadTest.testOffloadV2",1
+"org.apache.pulsar.admin.cli.PulsarAdminToolTest.clusters",1

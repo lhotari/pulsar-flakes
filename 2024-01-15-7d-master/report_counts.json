@@ -1,0 +1,8 @@
+{
+    "org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError": 2,
+    "org.apache.pulsar.client.impl.MultiTopicsReaderTest.testMultiNonPartitionedTopicWithRollbackDuration": 1,
+    "org.apache.pulsar.broker.SLAMonitoringTest.testUnloadIfBrokerCrashes": 1,
+    "org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression": 1,
+    "org.apache.pulsar.metadata.MetadataStoreTest.testExistsDistributed": 1,
+    "org.apache.pulsar.functions.worker.FunctionAssignmentTailerTest.testErrorNotifier": 1
+}

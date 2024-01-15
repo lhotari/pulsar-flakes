@@ -1,0 +1,7 @@
+"org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError",4
+"org.apache.pulsar.client.api.SimpleProducerConsumerTest.testMultiTopicsConsumerImplPauseForManualSubscription",2
+"org.apache.pulsar.broker.service.ReplicatorTest.testCleanupTopic",1
+"org.apache.pulsar.broker.service.BatchMessageTest.testConcurrentBatchMessageAck",1
+"org.apache.pulsar.client.impl.TransactionEndToEndTest.testDelayedTransactionMessages",1
+"org.apache.pulsar.broker.TopicEventsListenerTest.cleanupTest",1
+"org.apache.pulsar.broker.service.plugin.FilterEntryTest.testFilter",1

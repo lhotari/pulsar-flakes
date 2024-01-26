@@ -1,0 +1,5 @@
+"org.apache.pulsar.broker.TopicEventsListenerTest.cleanupTest",2
+"org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.initializeState",1
+"org.apache.pulsar.client.api.SimpleProducerConsumerTest.testMultiTopicsConsumerImplPauseForManualSubscription",1
+"org.apache.pulsar.metadata.MetadataStoreTest.testExistsDistributed",1
+"org.apache.pulsar.broker.admin.AdminApiOffloadTest.testOffloadV2",1

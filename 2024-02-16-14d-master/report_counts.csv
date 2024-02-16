@@ -1,0 +1,11 @@
+"org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError",4
+"org.apache.pulsar.client.api.SimpleProducerConsumerTest.testMultiTopicsConsumerImplPauseForManualSubscription",4
+"org.apache.pulsar.client.api.BrokerServiceLookupTest.testLookupConnectionNotCloseIfGetUnloadingExOrMetadataEx",2
+"org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.initializeState",2
+"org.apache.pulsar.broker.service.BatchMessageWithBatchIndexLevelTest.testConcurrentBatchMessageAck",2
+"org.apache.bookkeeper.replication.AuditorBookieTest.testBookieClusterRestart",1
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression",1
+"org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource",1
+"org.apache.pulsar.metadata.LeaderElectionTest.revalidateLeaderWithinSameSession",1
+"org.apache.pulsar.broker.service.ReplicatorTest.testCleanupTopic",1
+"org.apache.pulsar.client.api.SimpleProducerConsumerTest.rest",1

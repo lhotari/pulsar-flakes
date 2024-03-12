@@ -1,0 +1,5 @@
+{
+    "org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.initializeState": 1,
+    "org.apache.pulsar.client.api.SubscriptionMessageDispatchThrottlingTest.reset": 1
+}

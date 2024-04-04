@@ -4,8 +4,13 @@ import groovyx.net.http.FromServer
 import groovyx.net.http.NativeHandlers
 import groovyx.net.http.optional.Download
 import jakarta.ws.rs.core.Link
+import org.apache.http.HttpHost
+import org.apache.http.HttpRequest
+import org.apache.http.HttpRequestInterceptor
 import org.apache.http.impl.client.HttpClientBuilder
 import org.apache.http.impl.client.StandardHttpRequestRetryHandler
+import org.apache.http.protocol.HttpContext
+import org.apache.http.protocol.HttpCoreContext
 
 import java.time.Duration
 import java.time.Instant
@@ -55,11 +60,15 @@ baseUri = "https://api.github.com/repos/${SLUG}"
 // configures HttpBuilder-NG builder
 // https://http-builder-ng.github.io/http-builder-ng/asciidoc/html5/ for documentation
 githubHttpBuilder = configureHttpBuilder {
-    // configures the basic auth for github api requests
-    request.headers['Authorization'] = "token ${tokens.githubToken}".toString()
     // retry on failure 3 times
     client.clientCustomizer { HttpClientBuilder apacheHttpClientBuilder ->
         apacheHttpClientBuilder.retryHandler = new StandardHttpRequestRetryHandler(3, true)
+        apacheHttpClientBuilder.addInterceptorFirst({ HttpRequest request, HttpContext context ->
+            HttpHost targetHost = (HttpHost) context.getAttribute(HttpCoreContext.HTTP_TARGET_HOST);
+            if (targetHost != null && targetHost.getHostName().endsWith(".github.com")) {
+                request.addHeader('Authorization', "token ${tokens.githubToken}".toString())
+            }
+        } as HttpRequestInterceptor)
     }
 }
 

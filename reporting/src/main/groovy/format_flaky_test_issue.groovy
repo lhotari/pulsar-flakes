@@ -122,7 +122,7 @@ def toGSheetCsv(reportCounts) {
         methodName = split[split.length - 1]
         encodedIssueTitle = java.net.URLEncoder.encode("Flaky-test: ${className}.${methodName}", "UTF-8")
         encodedIssueBody = java.net.URLEncoder.encode(createIssuesBody.get(testKey), "UTF-8")
-        createIssueUrl = "https://github.com/apache/pulsar/issues/new?labels=flaky-tests&title=${encodedIssueTitle}&body=${encodedIssueBody}".take(8192)
+        createIssueUrl = "https://github.com/apache/pulsar/issues/new?labels=area/test,type/flaky-tests&title=${encodedIssueTitle}&body=${encodedIssueBody}".take(8192)
         res += "${className}.${methodName}\t${count}\t${gsheetLink('Report', 'BASE_REPORT_URL_PLACEHOLDER/' + testKey + '.md')}\t${gsheetLink('Issues', "https://github.com/apache/pulsar/issues?q=${className}%20${methodName}")}\t${gsheetLink('Create issue', createIssueUrl)}\t\n"
     }
     return res
@@ -137,7 +137,7 @@ def toReadme(reportCounts) {
         methodName = split[split.length - 1]
         encodedIssueTitle = java.net.URLEncoder.encode("Flaky-test: ${className}.${methodName}", "UTF-8")
         encodedIssueBody = java.net.URLEncoder.encode(createIssuesBody.get(testKey), "UTF-8")
-        createIssueUrl = "https://github.com/apache/pulsar/issues/new?labels=flaky-tests&title=${encodedIssueTitle}&body=${encodedIssueBody}".take(8192)
+        createIssueUrl = "https://github.com/apache/pulsar/issues/new?labels=area/test,type/flaky-tests&title=${encodedIssueTitle}&body=${encodedIssueBody}".take(8192)
         res += "${className}.${methodName} | ${count} | [Report](./${testKey}.md) | [Issues](https://github.com/apache/pulsar/issues?q=${className}%20${methodName}) | [Create issue](${createIssueUrl}) | |\n"
     }
     return res

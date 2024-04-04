@@ -1,0 +1,15 @@
+{
+    "org.apache.pulsar.broker.service.PersistentMessageFinderTest.testMessageExpiryWithTimestampNonRecoverableException": 4,
+    "org.apache.bookkeeper.mledger.impl.ManagedLedgerTest.testTimestampOnWorkingLedger": 1,
+    "org.apache.bookkeeper.mledger.impl.ManagedLedgerTest.testDeleteCurrentLedgerWhenItIsClosed": 1,
+    "org.apache.pulsar.broker.admin.TopicAuthZTest.testExpireMessage": 1,
+    "org.apache.pulsar.bookie.rackawareness.IsolatedBookieEnsemblePlacementPolicyTest.testMetadataStoreCases": 1,
+    "org.apache.pulsar.client.impl.ProducerConsumerInternalTest.testExclusiveConsumerWillAlwaysRetryEvenIfReceivedConsumerBusyError": 1,
+    "org.apache.pulsar.broker.admin.AdminApiMultiBrokersTest.testForceDeletePartitionedTopicWithSub": 1,
+    "org.apache.bookkeeper.mledger.impl.ManagedLedgerTest.testLedgerNotRolloverWithoutOpenState": 1,
+    "org.apache.pulsar.broker.admin.AdminApiOffloadTest.testOffloadV2": 1,
+    "org.apache.bookkeeper.mledger.impl.ShadowManagedLedgerImplTest.testShadowWrites": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.initializeState": 1,
+    "org.apache.bookkeeper.mledger.impl.OffloadPrefixTest.testPositionOnEdgeOfLedger": 1,
+    "org.apache.bookkeeper.replication.AuditorBookieTest.setUp": 1
+}

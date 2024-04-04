@@ -1,4 +1,0 @@
-# Summary
-
-Test method name | Failures | Report | Search issues | Create issue | Fixed by |
----------------- | -------- | ------ | ------------- | ------------ | -------- |

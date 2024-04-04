@@ -56,7 +56,7 @@ baseUri = "https://api.github.com/repos/${SLUG}"
 // https://http-builder-ng.github.io/http-builder-ng/asciidoc/html5/ for documentation
 githubHttpBuilder = configureHttpBuilder {
     // configures the basic auth for github api requests
-    request.headers['Authorization'] = "Basic ${"${tokens.githubUser}:${tokens.githubToken}".bytes.encodeBase64()}".toString()
+    request.headers['Authorization'] = "token ${tokens.githubToken}".toString()
     // retry on failure 3 times
     client.clientCustomizer { HttpClientBuilder apacheHttpClientBuilder ->
         apacheHttpClientBuilder.retryHandler = new StandardHttpRequestRetryHandler(3, true)

@@ -1,0 +1,21 @@
+{
+    "org.apache.pulsar.broker.admin.NamespaceAuthZTest.after": 8,
+    "org.apache.pulsar.client.impl.TransactionEndToEndWithoutBatchIndexAckTest.testDelayedTransactionMessages": 7,
+    "org.apache.pulsar.client.impl.TransactionEndToEndTest.testDelayedTransactionMessages": 5,
+    "org.apache.pulsar.broker.loadbalance.AdvertisedListenersMultiBrokerLeaderElectionTest.shouldProvideConsistentAnswerToTopicLookupsUsingAdminApi": 3,
+    "org.apache.pulsar.metadata.LeaderElectionTest.revalidateLeaderWithinSameSession": 3,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.testTryAcquiringOwnership": 2,
+    "org.apache.pulsar.client.api.SimpleProducerConsumerTest.testMultiTopicsConsumerImplPauseForManualSubscription": 2,
+    "org.apache.pulsar.client.api.TenantTest.testBlankAdminRoleTenant": 1,
+    "org.apache.bookkeeper.mledger.impl.OffloadPrefixTest.testPositionOnEdgeOfLedger": 1,
+    "org.apache.pulsar.broker.admin.NamespaceAuthZTest.testOffloadPolicies": 1,
+    "org.apache.pulsar.io.flume.sink.StringSinkTests.setUp": 1,
+    "org.apache.pulsar.client.api.NonPersistentTopicTest.testMsgDropStat": 1,
+    "org.apache.pulsar.client.api.SubscriptionMessageDispatchThrottlingTest.reset": 1,
+    "org.apache.pulsar.broker.service.ReplicatorTest.testCleanupTopic": 1,
+    "org.apache.pulsar.broker.service.SyncConfigStoreTest.setup": 1,
+    "org.apache.pulsar.broker.service.CurrentLedgerRolloverIfFullTest.testCurrentLedgerRolloverIfFull": 1,
+    "org.apache.pulsar.broker.service.ConsistentHashingStickyKeyConsumerSelectorTest.testConsumerSelect": 1,
+    "org.apache.pulsar.client.impl.TopicsConsumerImplTest.multiTopicsInDifferentNameSpace": 1,
+    "org.apache.pulsar.broker.service.BrokerBookieIsolationTest.testBookieIsolation": 1
+}

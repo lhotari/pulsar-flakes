@@ -1,0 +1,16 @@
+{
+    "org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation": 3,
+    "org.apache.pulsar.client.api.BrokerServiceLookupTest.testLookupConnectionNotCloseIfGetUnloadingExOrMetadataEx": 2,
+    "org.apache.pulsar.broker.loadbalance.extensions.BrokerRegistryMetadataStoreIntegrationTest.cleanup": 2,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerCloseTest.testCloseAfterLoadingBundles": 2,
+    "org.apache.pulsar.broker.resourcegroup.RGUsageMTAggrWaitForAllMsgsTest.testMTProduceConsumeRGUsagePersistentTopicNamesDifferentTenant": 1,
+    "org.apache.pulsar.broker.admin.NamespaceAuthZTest.after": 1,
+    "org.apache.pulsar.broker.stats.PrometheusMetricsTest.testBrokerMetrics": 1,
+    "org.apache.pulsar.client.api.DeadLetterTopicTest.testDeadLetterTopicWithInitialSubscriptionAndMultiConsumers": 1,
+    "org.apache.pulsar.broker.service.ZkSessionExpireTest.cleanup": 1,
+    "org.apache.pulsar.broker.admin.NamespacesTest.testNamespacesApiRedirects": 1,
+    "org.apache.pulsar.broker.loadbalance.impl.ModularLoadManagerImplTest.testRemoveNonExistBundleData": 1,
+    "org.apache.pulsar.broker.admin.GetPartitionMetadataMultiBrokerTest.testCompatibilityDifferentBrokersForNonPersistentTopic": 1,
+    "org.apache.bookkeeper.mledger.impl.ManagedLedgerTest.testInvalidateReadHandleWhenConsumed": 1,
+    "org.apache.pulsar.broker.resourcegroup.RGUsageMTAggrWaitForAllMsgsTest.testMTProduceConsumeRGUsagePersistentTopicNamesSameTenant": 1
+}

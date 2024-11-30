@@ -1,0 +1,13 @@
+"org.apache.pulsar.broker.service.BrokerServiceTest.testOwnedNsCheck",2
+"org.apache.pulsar.broker.service.BrokerServiceTest.testLookupThrottlingForClientByClient",2
+"org.apache.pulsar.client.api.SimpleProducerConsumerTest.testMultiTopicsConsumerImplPauseForPartitionNumberChange",2
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression",1
+"org.apache.pulsar.tests.integration.functions.java.PulsarFunctionsJavaThreadTest.testTumblingCountWindowTest",1
+"org.apache.pulsar.client.api.SimpleProducerConsumerTest.cleanupAfterMethod",1
+"org.apache.pulsar.tests.TestRetrySupport.stateCheck",1
+"org.apache.pulsar.broker.admin.NamespaceAuthZTest.after",1
+"org.apache.pulsar.broker.service.ExclusiveProducerTest.exclusiveWithConsumers",1
+"org.apache.pulsar.broker.service.persistent.DelayedDeliveryTest.testOrderingDispatch",1
+"org.apache.pulsar.broker.service.BatchMessageTest.testBatchMessageDispatchingAccordingToPermits",1
+"org.apache.pulsar.tests.integration.functions.java.PulsarFunctionsJavaProcessTest.testTumblingCountWindowTest",1
+"org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation",1

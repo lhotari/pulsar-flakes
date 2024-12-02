@@ -1,0 +1,16 @@
+"org.apache.pulsar.broker.service.ExclusiveProducerTest.exclusiveWithConsumers",2
+"org.apache.pulsar.client.api.KeySharedSubscriptionTest.testNoKeySendAndReceiveWithHashRangeAutoSplitStickyKeyConsumerSelector",1
+"org.apache.pulsar.broker.service.PersistentDispatcherFailoverConsumerTest.testAddRemoveConsumer",1
+"org.apache.pulsar.broker.service.ReplicatorTest.testResetReplicatorSubscriptionPosition",1
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression",1
+"org.apache.pulsar.bookie.rackawareness.IsolatedBookieEnsemblePlacementPolicyTest.testMetadataStoreCases",1
+"org.apache.pulsar.broker.admin.NamespaceAuthZTest.after",1
+"org.apache.pulsar.broker.service.ZkSessionExpireTest.cleanup",1
+"org.apache.pulsar.broker.admin.TransactionAndSchemaAuthZTest.testSchemaAndTransactionAuthorization",1
+"org.apache.pulsar.broker.service.BatchMessageTest.testBatchMessageDispatchingAccordingToPermits",1
+"org.apache.pulsar.broker.service.ExclusiveProducerTest.simpleTest",1
+"org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation",1
+"org.apache.pulsar.broker.admin.NamespaceAuthZTest.testPersistence",1
+"org.apache.pulsar.io.kinesis.KinesisSinkTest.testWrite",1
+"org.apache.pulsar.broker.service.SubscriptionSeekTest.testSeekWillNotEncounteredFencedError",1
+"org.apache.pulsar.tests.integration.messaging.GeoReplicationTest.testTopicReplication",1

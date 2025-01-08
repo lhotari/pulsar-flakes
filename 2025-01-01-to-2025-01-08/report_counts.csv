@@ -1,0 +1,13 @@
+"org.apache.pulsar.broker.service.ZkSessionExpireTest.testTopicUnloadAfterSessionRebuild",9
+"org.apache.pulsar.broker.service.streamingdispatch.StreamingEntryReaderTests.testCanCancelReadEntryRequestAndResumeReading",4
+"org.apache.pulsar.broker.service.streamingdispatch.StreamingEntryReaderTests.testWillCancelReadAfterExhaustingRetry",4
+"org.apache.pulsar.broker.service.streamingdispatch.StreamingEntryReaderTests.testCanReadEntryFromMLedgerSizeExceededLimit",4
+"org.apache.pulsar.broker.service.streamingdispatch.StreamingEntryReaderTests.testCanReadEntryFromMLedgerWaitingForNewEntry",4
+"org.apache.pulsar.broker.service.streamingdispatch.StreamingEntryReaderTests.testCanReadEntryFromMLedgerHappyPath",4
+"org.apache.pulsar.broker.service.BatchMessageTest.testBatchMessageDispatchingAccordingToPermits",2
+"org.apache.pulsar.io.kinesis.KinesisSinkTest.testWrite",1
+"org.apache.pulsar.metadata.ZKSessionTest.testReacquireLeadershipAfterSessionLost",1
+"org.apache.pulsar.broker.service.DisabledCreateTopicToRemoteClusterForReplicationTest.testCreatePartitionedTopicWithNsReplication",1
+"org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.initializeState",1
+"org.apache.pulsar.broker.stats.PrometheusMetricsTest.testBrokerMetrics",1
+"org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression",1

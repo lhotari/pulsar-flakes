@@ -1,0 +1,21 @@
+{
+    "org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation": 5,
+    "org.apache.pulsar.broker.stats.PrometheusMetricsTest.testBrokerMetrics": 3,
+    "org.apache.pulsar.broker.service.BatchMessageTest.testBatchMessageDispatchingAccordingToPermits": 2,
+    "org.apache.pulsar.broker.service.OneWayReplicatorDeduplicationTest.testDeduplication": 2,
+    "org.apache.pulsar.client.api.NonPersistentTopicTest.testMsgDropStat": 1,
+    "org.apache.pulsar.client.api.SimpleProducerConsumerTest.testReceiveAsyncCompletedWhenClosing": 1,
+    "org.apache.pulsar.common.util.RateLimiterTest.testDispatchRate": 1,
+    "org.apache.pulsar.broker.service.BatchMessageWithBatchIndexLevelTest.testBatchMessageDispatchingAccordingToPermits": 1,
+    "org.apache.pulsar.websocket.proxy.ProxyPublishConsumeClientSideEncryptionTest.testJavaSendAndWssConsumeWithEncryptionAndCompression": 1,
+    "org.apache.pulsar.broker.admin.v1.V1_AdminApiTest.reset": 1,
+    "org.apache.pulsar.broker.SameAuthParamsLookupAutoClusterFailoverTest.testAutoClusterFailover": 1,
+    "org.apache.pulsar.functions.worker.FunctionAssignmentTailerTest.testErrorNotifier": 1,
+    "org.apache.pulsar.tests.TestRetrySupport.stateCheck": 1,
+    "org.apache.pulsar.broker.resourcegroup.RGUsageMTAggrWaitForAllMsgsTest.testMTProduceConsumeRGUsagePersistentTopicNamesSameTenant": 1,
+    "org.apache.pulsar.tests.integration.loadbalance.ExtensibleLoadManagerTest.startBroker": 1,
+    "org.apache.pulsar.broker.resourcegroup.RGUsageMTAggrWaitForAllMsgsTest.testMTProduceConsumeRGUsagePersistentTopicNamesDifferentTenant": 1,
+    "org.apache.pulsar.broker.admin.NamespaceAuthZTest.after": 1,
+    "org.apache.pulsar.client.impl.AutoCloseUselessClientConMultiPartTest.testConnectionAutoReleasePartitionedTopic": 1,
+    "org.apache.pulsar.broker.service.ClusterMigrationTest.cleanup": 1
+}

@@ -1,0 +1,23 @@
+{
+    "org.apache.pulsar.broker.service.OneWayReplicatorUsingGlobalPartitionedTest.testRemoveCluster": 21,
+    "org.apache.pulsar.broker.service.BrokerServiceChaosTest.testFetchPartitionedTopicMetadataWithCacheRefresh": 19,
+    "org.apache.pulsar.broker.admin.NamespaceAuthZTest.after": 7,
+    "org.apache.pulsar.broker.loadbalance.extensions.BrokerRegistryMetadataStoreIntegrationTest.cleanup": 5,
+    "org.apache.pulsar.broker.service.PublishRateLimiterOverconsumingTest.testOverconsumingTokensWithBrokerPublishRateLimiter": 4,
+    "org.apache.pulsar.broker.service.BrokerServiceTest.testOwnedNsCheck": 3,
+    "org.apache.pulsar.broker.service.ZkSessionExpireTest.cleanup": 3,
+    "org.apache.pulsar.broker.service.BrokerServiceTest.testLookupThrottlingForClientByClient": 3,
+    "org.apache.pulsar.client.impl.ProduceWithMessageIdTest.sendWithCallBack": 3,
+    "org.apache.pulsar.broker.SameAuthParamsLookupAutoClusterFailoverTest.testAutoClusterFailover": 2,
+    "org.apache.pulsar.broker.transaction.buffer.TopicTransactionBufferTest.testMessagePublishInOrder": 2,
+    "org.apache.pulsar.transaction.coordinator.MLTransactionMetadataStoreTest.testRecoverSequenceId": 1,
+    "org.apache.bookkeeper.mledger.impl.ManagedCursorTest.testSkipEntriesWithIndividualDeletedMessages": 1,
+    "org.apache.pulsar.client.api.SimpleProducerConsumerTest.testReceiveAsyncCompletedWhenClosing": 1,
+    "org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation": 1,
+    "org.apache.pulsar.broker.admin.v1.V1_AdminApiTest.reset": 1,
+    "org.apache.bookkeeper.mledger.impl.ManagedLedgerTest.testDoNotGetOffloadPoliciesMultipleTimesWhenTrimLedgers": 1,
+    "org.apache.pulsar.broker.transaction.TransactionTest.testNotChangeMaxReadPositionCountWhenCheckIfNoSnapshot": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.testLoadBalancerServiceUnitTableViewSyncer": 1,
+    "org.apache.pulsar.broker.admin.NamespacesTest.testNamespacesApiRedirects": 1,
+    "org.apache.pulsar.client.impl.MultiTopicsReaderTest.testMultiNonPartitionedTopicWithRollbackDuration": 1
+}

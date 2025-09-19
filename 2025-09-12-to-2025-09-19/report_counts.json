@@ -1,0 +1,3 @@
+{
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerCloseTest.testCloseAfterLoadingBundles": 1
+}

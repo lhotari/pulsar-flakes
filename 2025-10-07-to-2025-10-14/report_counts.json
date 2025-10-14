@@ -1,0 +1,20 @@
+{
+    "org.apache.pulsar.client.impl.SequenceIdWithErrorTest.testCheckSequenceId": 13,
+    "org.apache.pulsar.client.api.PatternConsumerBackPressureTest.testInfiniteGetThousandsTopics": 4,
+    "org.apache.pulsar.client.api.SimpleProducerConsumerTest.testReceiveAsyncCompletedWhenClosing": 2,
+    "org.apache.pulsar.client.api.LookupPropertiesTest.testConcurrentLookupProperties": 1,
+    "org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource": 1,
+    "org.apache.bookkeeper.mledger.impl.ManagedCursorConcurrencyTest.testConcurrentReadOfSameEntry": 1,
+    "org.apache.bookkeeper.replication.AuditorBookieTest.testBookieClusterRestart": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.channel.ServiceUnitStateChannelTest.transferTest": 1,
+    "org.apache.pulsar.broker.transaction.SegmentAbortedTxnProcessorTest.testClearSnapshotSegments": 1,
+    "org.apache.pulsar.broker.service.ReplicatorTest.testResumptionAfterBacklogRelaxed": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.BrokerRegistryIntegrationTest.cleanup": 1,
+    "org.apache.pulsar.client.api.ConsumerBatchReceiveTest.testBatchReceiveAndRedeliveryNonPartitionedTopic": 1,
+    "org.apache.bookkeeper.replication.TestAutoRecoveryAlongWithBookieServers.setUp": 1,
+    "org.apache.pulsar.broker.transaction.SegmentAbortedTxnProcessorTest.testPutAbortedTxnIntoProcessor": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.BrokerRegistryMetadataStoreIntegrationTest.cleanup": 1,
+    "org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.testLoadBalancerServiceUnitTableViewSyncer": 1,
+    "org.apache.pulsar.broker.service.OneWayReplicatorDeduplicationTest.cleanup": 1,
+    "org.apache.pulsar.functions.worker.PulsarFunctionTlsTest.testFunctionsCreation": 1
+}

@@ -325,7 +325,7 @@ def handlePulls() {
                     runs.workflow_runs.each { runInfo ->
                         int maxAttemptNumber = runInfo.run_attempt as Integer
                         for (int attemptNumber=1; attemptNumber <= maxAttemptNumber; attemptNumber++) {
-                            checkLogs(runInfo, prInfo, pullDirectory, oldestUpdatedOrMergedTimeAccepted, attemptNumber)
+                            checkLogs(runInfo, prInfo, pullDirectory, oldestUpdatedOrMergedTimeAccepted, attemptNumber, true)
                         }
                     }
                     pullFile.text = toJson(prInfo)

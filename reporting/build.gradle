@@ -22,10 +22,10 @@ dependencies {
 
 
 task runReport(dependsOn: 'classes', type: JavaExec) {
-    main = 'download_test_exceptions'
+    mainClass = 'download_test_exceptions'
     classpath = sourceSets.main.runtimeClasspath
 }
 task formatReport(dependsOn: 'classes', type: JavaExec) {
-    main = 'format_flaky_test_issue'
+    mainClass = 'format_flaky_test_issue'
     classpath = sourceSets.main.runtimeClasspath
 }

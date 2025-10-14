@@ -1,31 +1,36 @@
 plugins {
     id 'groovy'
+    id 'com.github.ben-manes.versions' version '0.53.0'
 }
 
 repositories {
     mavenCentral()
 }
 
-
 dependencies {
-    // Use the latest Groovy version for building this library
-    implementation 'org.codehaus.groovy:groovy-all:3.0.19'
-    implementation 'org.slf4j:jcl-over-slf4j:1.7.36'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.25'
+    implementation platform("org.apache.logging.log4j:log4j-bom:2.25.2")
+    implementation "org.apache.logging.log4j:log4j-api"
+    implementation "org.apache.logging.log4j:log4j-core"
+    implementation "org.apache.logging.log4j:log4j-slf4j2-impl"
     implementation 'io.github.http-builder-ng:http-builder-ng-apache:1.0.4'
-    implementation 'org.zeroturnaround:zt-zip:1.16'
-    implementation 'org.apache.cxf:cxf-rt-rs-client:4.0.3'
-    implementation 'commons-io:commons-io:2.15.0'
-    implementation "org.apache.logging.log4j:log4j-api:2.23.1"
-    implementation "org.apache.logging.log4j:log4j-core:2.23.1"
-    implementation "org.apache.logging.log4j:log4j-slf4j-impl:2.23.1"
+    implementation 'org.zeroturnaround:zt-zip:1.17'
+    implementation 'org.apache.cxf:cxf-rt-rs-client:4.0.9'
+    implementation 'commons-io:commons-io:2.20.0'
 }
-
 
 task runReport(dependsOn: 'classes', type: JavaExec) {
     mainClass = 'download_test_exceptions'
     classpath = sourceSets.main.runtimeClasspath
 }
+
 task formatReport(dependsOn: 'classes', type: JavaExec) {
     mainClass = 'format_flaky_test_issue'
     classpath = sourceSets.main.runtimeClasspath
+}
+
+tasks.named("dependencyUpdates").configure {
+    rejectVersionIf {
+        it.candidate.version.contains("alpha") || it.candidate.version.contains("beta") || it.candidate.version.contains("rc")
+    }
 }

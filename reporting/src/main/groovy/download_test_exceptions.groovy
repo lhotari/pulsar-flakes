@@ -368,7 +368,7 @@ if (TESTMODE) {
     processLogFile(new File(testInputDir, 'log.txt'),
             new JsonSlurper().parse(new File(testInputDir, 'job.json')),
             new JsonSlurper().parse(new File(testInputDir, 'run.json')),
-            new JsonSlurper().parse(new File(testInputDir, 'pull.json')), 4)
+            null, 1)
 } else {
     switch (System.getenv("TEST_REPORTING_SOURCE")) {
         case 'master':

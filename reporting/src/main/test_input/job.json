@@ -1,196 +1,220 @@
 {
-    "id": 17268210059,
-    "run_id": 6354520087,
+    "id": 52547837276,
+    "run_id": 18443739797,
     "workflow_name": "Pulsar CI",
-    "head_branch": "lombok-jdk-21-compat",
-    "run_url": "https://api.github.com/repos/apache/pulsar/actions/runs/6354520087",
-    "run_attempt": 4,
-    "node_id": "CR_kwDOA7PXtM8AAAAEBUP5iw",
-    "head_sha": "2251cfd388a9a9ec4b3cdd8b4bc82713c20acfa5",
-    "url": "https://api.github.com/repos/apache/pulsar/actions/jobs/17268210059",
-    "html_url": "https://github.com/apache/pulsar/actions/runs/6354520087/job/17268210059",
+    "head_branch": "master",
+    "run_url": "https://api.github.com/repos/apache/pulsar/actions/runs/18443739797",
+    "run_attempt": 1,
+    "node_id": "CR_kwDOA7PXtM8AAAAMPBhdXA",
+    "head_sha": "ee33c99606e8f573dc55f47529e7c209bd8194e3",
+    "url": "https://api.github.com/repos/apache/pulsar/actions/jobs/52547837276",
+    "html_url": "https://github.com/apache/pulsar/actions/runs/18443739797/job/52547837276",
     "status": "completed",
     "conclusion": "failure",
-    "created_at": "2023-09-29T21:22:46Z",
-    "started_at": "2023-09-29T21:22:53Z",
-    "completed_at": "2023-09-29T21:39:15Z",
-    "name": "CI - Unit - Other",
+    "created_at": "2025-10-12T12:20:27Z",
+    "started_at": "2025-10-12T12:20:29Z",
+    "completed_at": "2025-10-12T12:53:43Z",
+    "name": "CI - Unit - Brokers - Client Impl",
     "steps": [
         {
             "name": "Set up job",
             "status": "completed",
             "conclusion": "success",
             "number": 1,
-            "started_at": "2023-09-30T00:22:53.000+03:00",
-            "completed_at": "2023-09-30T00:23:00.000+03:00"
+            "started_at": "2025-10-12T12:20:30Z",
+            "completed_at": "2025-10-12T12:20:33Z"
         },
         {
             "name": "checkout",
             "status": "completed",
             "conclusion": "success",
             "number": 2,
-            "started_at": "2023-09-30T00:23:00.000+03:00",
-            "completed_at": "2023-09-30T00:23:04.000+03:00"
+            "started_at": "2025-10-12T12:20:33Z",
+            "completed_at": "2025-10-12T12:20:36Z"
         },
         {
             "name": "Tune Runner VM",
             "status": "completed",
             "conclusion": "success",
             "number": 3,
-            "started_at": "2023-09-30T00:23:05.000+03:00",
-            "completed_at": "2023-09-30T00:23:07.000+03:00"
+            "started_at": "2025-10-12T12:20:36Z",
+            "completed_at": "2025-10-12T12:20:38Z"
+        },
+        {
+            "name": "Clean Disk when tracing test resource cleanup",
+            "status": "completed",
+            "conclusion": "skipped",
+            "number": 4,
+            "started_at": "2025-10-12T12:20:38Z",
+            "completed_at": "2025-10-12T12:20:38Z"
         },
         {
             "name": "Setup ssh access to build runner VM",
             "status": "completed",
             "conclusion": "skipped",
-            "number": 4,
-            "started_at": "2023-09-30T00:23:07.000+03:00",
-            "completed_at": "2023-09-30T00:23:07.000+03:00"
+            "number": 5,
+            "started_at": "2025-10-12T12:20:38Z",
+            "completed_at": "2025-10-12T12:20:38Z"
         },
         {
             "name": "Cache Maven dependencies",
             "status": "completed",
             "conclusion": "success",
-            "number": 5,
-            "started_at": "2023-09-30T00:23:07.000+03:00",
-            "completed_at": "2023-09-30T00:23:19.000+03:00"
+            "number": 6,
+            "started_at": "2025-10-12T12:20:38Z",
+            "completed_at": "2025-10-12T12:20:45Z"
         },
         {
-            "name": "Set up JDK 17",
+            "name": "Set up JDK 21",
             "status": "completed",
             "conclusion": "success",
-            "number": 6,
-            "started_at": "2023-09-30T00:23:20.000+03:00",
-            "completed_at": "2023-09-30T00:23:20.000+03:00"
+            "number": 7,
+            "started_at": "2025-10-12T12:20:45Z",
+            "completed_at": "2025-10-12T12:20:49Z"
         },
         {
             "name": "Install gh-actions-artifact-client.js",
             "status": "completed",
             "conclusion": "success",
-            "number": 7,
-            "started_at": "2023-09-30T00:23:20.000+03:00",
-            "completed_at": "2023-09-30T00:23:20.000+03:00"
+            "number": 8,
+            "started_at": "2025-10-12T12:20:49Z",
+            "completed_at": "2025-10-12T12:20:50Z"
         },
         {
             "name": "Restore maven build results from Github artifact cache",
             "status": "completed",
             "conclusion": "success",
-            "number": 8,
-            "started_at": "2023-09-30T00:23:21.000+03:00",
-            "completed_at": "2023-09-30T00:23:42.000+03:00"
+            "number": 9,
+            "started_at": "2025-10-12T12:20:50Z",
+            "completed_at": "2025-10-12T12:23:25Z"
         },
         {
             "name": "Run setup commands",
             "status": "completed",
             "conclusion": "success",
-            "number": 9,
-            "started_at": "2023-09-30T00:23:42.000+03:00",
-            "completed_at": "2023-09-30T00:23:42.000+03:00"
+            "number": 10,
+            "started_at": "2025-10-12T12:23:25Z",
+            "completed_at": "2025-10-12T12:23:25Z"
         },
         {
-            "name": "Run unit test group 'OTHER'",
+            "name": "Run unit test group 'BROKER_CLIENT_IMPL'",
             "status": "completed",
             "conclusion": "failure",
-            "number": 10,
-            "started_at": "2023-09-30T00:23:44.000+03:00",
-            "completed_at": "2023-09-30T00:37:49.000+03:00"
+            "number": 11,
+            "started_at": "2025-10-12T12:23:25Z",
+            "completed_at": "2025-10-12T12:53:33Z"
         },
         {
             "name": "Upload coverage to build artifacts",
             "status": "completed",
             "conclusion": "skipped",
-            "number": 11,
-            "started_at": "2023-09-30T00:37:50.000+03:00",
-            "completed_at": "2023-09-30T00:37:50.000+03:00"
+            "number": 12,
+            "started_at": "2025-10-12T12:53:33Z",
+            "completed_at": "2025-10-12T12:53:33Z"
         },
         {
             "name": "print JVM thread dumps when cancelled",
             "status": "completed",
             "conclusion": "skipped",
-            "number": 12,
-            "started_at": "2023-09-30T00:37:50.000+03:00",
-            "completed_at": "2023-09-30T00:37:50.000+03:00"
+            "number": 13,
+            "started_at": "2025-10-12T12:53:33Z",
+            "completed_at": "2025-10-12T12:53:33Z"
         },
         {
             "name": "Aggregates all test reports to ./test-reports and ./surefire-reports directories",
             "status": "completed",
             "conclusion": "success",
-            "number": 13,
-            "started_at": "2023-09-30T00:37:50.000+03:00",
-            "completed_at": "2023-09-30T00:37:50.000+03:00"
+            "number": 14,
+            "started_at": "2025-10-12T12:53:33Z",
+            "completed_at": "2025-10-12T12:53:34Z"
         },
         {
             "name": "Publish Test Report",
             "status": "completed",
             "conclusion": "success",
-            "number": 14,
-            "started_at": "2023-09-30T00:37:51.000+03:00",
-            "completed_at": "2023-09-30T00:37:51.000+03:00"
+            "number": 15,
+            "started_at": "2025-10-12T12:53:34Z",
+            "completed_at": "2025-10-12T12:53:34Z"
+        },
+        {
+            "name": "Report detected thread leaks",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2025-10-12T12:53:34Z",
+            "completed_at": "2025-10-12T12:53:34Z"
+        },
+        {
+            "name": "Report detected Netty leaks",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2025-10-12T12:53:34Z",
+            "completed_at": "2025-10-12T12:53:34Z"
         },
         {
             "name": "Upload Surefire reports",
             "status": "completed",
             "conclusion": "success",
-            "number": 15,
-            "started_at": "2023-09-30T00:37:51.000+03:00",
-            "completed_at": "2023-09-30T00:39:07.000+03:00"
+            "number": 18,
+            "started_at": "2025-10-12T12:53:34Z",
+            "completed_at": "2025-10-12T12:53:39Z"
         },
         {
             "name": "Upload possible heap dump, core dump or crash files",
             "status": "completed",
             "conclusion": "success",
-            "number": 16,
-            "started_at": "2023-09-30T00:39:07.000+03:00",
-            "completed_at": "2023-09-30T00:39:08.000+03:00"
+            "number": 19,
+            "started_at": "2025-10-12T12:53:39Z",
+            "completed_at": "2025-10-12T12:53:41Z"
         },
         {
             "name": "Wait for ssh connection when build fails",
             "status": "completed",
             "conclusion": "skipped",
-            "number": 17,
-            "started_at": "2023-09-30T00:39:15.000+03:00",
-            "completed_at": "2023-09-30T00:39:15.000+03:00"
+            "number": 20,
+            "started_at": "2025-10-12T12:53:41Z",
+            "completed_at": "2025-10-12T12:53:41Z"
         },
         {
-            "name": "Post Set up JDK 17",
+            "name": "Post Set up JDK 21",
             "status": "completed",
             "conclusion": "success",
-            "number": 33,
-            "started_at": "2023-09-30T00:39:15.000+03:00",
-            "completed_at": "2023-09-30T00:39:15.000+03:00"
+            "number": 38,
+            "started_at": "2025-10-12T12:53:41Z",
+            "completed_at": "2025-10-12T12:53:41Z"
         },
         {
             "name": "Post Cache Maven dependencies",
             "status": "completed",
             "conclusion": "skipped",
-            "number": 34,
-            "started_at": "2023-09-30T00:39:15.000+03:00",
-            "completed_at": "2023-09-30T00:39:15.000+03:00"
-        },
-        {
-            "name": "Complete job",
-            "status": "completed",
-            "conclusion": "success",
-            "number": 37,
-            "started_at": "2023-09-30T00:39:08.000+03:00",
-            "completed_at": "2023-09-30T00:39:08.000+03:00"
+            "number": 39,
+            "started_at": "2025-10-12T12:53:41Z",
+            "completed_at": "2025-10-12T12:53:41Z"
         },
         {
             "name": "Post checkout",
             "status": "completed",
             "conclusion": "success",
-            "number": 38,
-            "started_at": "2023-09-30T00:39:15.000+03:00",
-            "completed_at": "2023-09-30T00:39:15.000+03:00"
+            "number": 40,
+            "started_at": "2025-10-12T12:53:41Z",
+            "completed_at": "2025-10-12T12:53:41Z"
+        },
+        {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 41,
+            "started_at": "2025-10-12T12:53:41Z",
+            "completed_at": "2025-10-12T12:53:41Z"
         }
     ],
-    "check_run_url": "https://api.github.com/repos/apache/pulsar/check-runs/17268210059",
+    "check_run_url": "https://api.github.com/repos/apache/pulsar/check-runs/52547837276",
     "labels": [
         "ubuntu-22.04"
     ],
-    "runner_id": 403,
-    "runner_name": "GitHub Actions 52",
-    "runner_group_id": 2,
+    "runner_id": 1005775344,
+    "runner_name": "GitHub Actions 1005775344",
+    "runner_group_id": 0,
     "runner_group_name": "GitHub Actions"
 }

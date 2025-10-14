@@ -26,19 +26,13 @@ testExceptionsDirectory.traverse(type: FileType.FILES, nameFilter: ~/.*\.json$/)
 }
 
 def reportCounts = [:]
-createIssuesBody = [:]
+issueFields = [:]
 exceptionsForTest.sort { it.value.size() }.reverseEach { testKey, allExceptions ->
     if (allExceptions.size() >= minFailures) {
-        def issueBody = """
-### Search before asking
-
-- [X] I searched in the [issues](https://github.com/apache/pulsar/issues) and found nothing similar.
-
-### Example failures
-
-"""
         reportCounts.put(testKey, allExceptions.size())
         def reportFile = new File(reportsDir, "${testKey}.md")
+        def issueFieldsForTest = [:]
+        issueFields.put(testKey, issueFieldsForTest)
         reportFile.withPrintWriter { out ->
             out.println """        
 Flaky-test: ${testKey}
@@ -66,7 +60,7 @@ ${allExceptions[0].testClass} is flaky. The ${allExceptions[0].testMethod} test 
                     items.sort { it.timestamp }.reverse().each { item ->
                         out.println "[example failure ${item.timestamp}](${item.url})  "
                         if (!issueBodyAdded) {
-                            issueBody += "- [${item.timestamp}](${item.url}) \n"
+                            issueFieldsForTest.put("failureUrl", item.url)
                         }
                     }
                     out.println """
@@ -79,27 +73,12 @@ ${longException}
 </details>
 """
                     if (!issueBodyAdded) {
-                        issueBody += """
-
-### Exception stacktrace
-
-```
-${longException.readLines().take(30).join('\n').take(4000)}
-```
-"""
+                        issueFieldsForTest.put("stacktrace", longException.readLines().take(30).join('\n').take(4000))
                         issueBodyAdded = true
                     }
                 }
             }
         }
-        issueBody += """
-
-### Are you willing to submit a PR?
-
-- [ ] I'm willing to submit a PR!
-"""
-        createIssuesBody.put(testKey, issueBody)
-
     }
 }
 
@@ -113,6 +92,17 @@ def gsheetLink(text, url) {
     return "=HYPERLINK(\"${url}\",\"${text}\")"
 }
 
+def getCreateIssueUrl(testKey) {
+    def split = testKey.split("\\.")
+    def className = split[split.length - 2]
+    def methodName = split[split.length - 1]
+    def issueFieldsForTest = [template     : 'flaky-test.yml',
+                              confirmSearch: 'true',
+                              title        : "Flaky-test: ${className}.${methodName}"] + issueFields.get(testKey)
+    def encodedFields = issueFieldsForTest.collect { entry -> "${entry.key}=${java.net.URLEncoder.encode(entry.value, "UTF-8")}" }.join('&')
+    return "https://github.com/apache/pulsar/issues/new?${encodedFields}".take(8000)
+}
+
 def toGSheetCsv(reportCounts) {
     def res = "Test method name\tFailures\tReport\tSearch issues\tCreate issue\tFixed by\n"
 
@@ -120,9 +110,7 @@ def toGSheetCsv(reportCounts) {
         split = testKey.split("\\.")
         className = split[split.length - 2]
         methodName = split[split.length - 1]
-        encodedIssueTitle = java.net.URLEncoder.encode("Flaky-test: ${className}.${methodName}", "UTF-8")
-        encodedIssueBody = java.net.URLEncoder.encode(createIssuesBody.get(testKey), "UTF-8")
-        createIssueUrl = "https://github.com/apache/pulsar/issues/new?template=flaky-test.yml&title=${encodedIssueTitle}&body=${encodedIssueBody}".take(8000)
+        createIssueUrl = getCreateIssueUrl(testKey)
         res += "${className}.${methodName}\t${count}\t${gsheetLink('Report', 'BASE_REPORT_URL_PLACEHOLDER/' + testKey + '.md')}\t${gsheetLink('Issues', "https://github.com/apache/pulsar/issues?q=${className}%20${methodName}")}\t${gsheetLink('Create issue', createIssueUrl)}\t\n"
     }
     return res
@@ -135,9 +123,7 @@ def toReadme(reportCounts) {
         split = testKey.split("\\.")
         className = split[split.length - 2]
         methodName = split[split.length - 1]
-        encodedIssueTitle = java.net.URLEncoder.encode("Flaky-test: ${className}.${methodName}", "UTF-8")
-        encodedIssueBody = java.net.URLEncoder.encode(createIssuesBody.get(testKey), "UTF-8")
-        createIssueUrl = "https://github.com/apache/pulsar/issues/new?template=flaky-test.yml&title=${encodedIssueTitle}&body=${encodedIssueBody}".take(8000)
+        createIssueUrl = getCreateIssueUrl(testKey)
         res += "${className}.${methodName} | ${count} | [Report](./${testKey}.md) | [Issues](https://github.com/apache/pulsar/issues?q=${className}%20${methodName}) | [Create issue](${createIssueUrl}) | |\n"
     }
     return res

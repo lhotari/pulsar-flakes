@@ -263,7 +263,7 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                                     threaddump: threaddumpException
                             ]
                             if (testfailureException) {
-                                currentLine.find(~/\[ERROR\] ([^\[(]*)\.([^\[(]*)(.*?)  Time elapsed/) {
+                                currentLine.find(~/\[ERROR\] ([^\[(]*)\.([^\[(]*)(.*?) -- Time elapsed/) {
                                     testException.testClass = it[1]
                                     testException.testMethod = it[2]
                                 }

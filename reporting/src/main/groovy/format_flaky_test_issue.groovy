@@ -43,7 +43,7 @@ ${allExceptions[0].testClass} is flaky. The ${allExceptions[0].testMethod} test 
             allExceptions.each { testException ->
                 testException.textLines = testException.text.readLines()
                 def foundIt = false
-                testException.shortException = testException.textLines.drop(1).takeWhile {
+                testException.shortException = testException.textLines.drop(2).takeWhile {
                     boolean beforeThis = foundIt
                     if (it.contains(testException.testMethod)) {
                         foundIt = true

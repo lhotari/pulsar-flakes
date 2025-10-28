@@ -1,0 +1,13 @@
+{
+    "org.apache.pulsar.broker.loadbalance.extensions.BrokerRegistryMetadataStoreIntegrationTest.cleanup": 4,
+    "org.apache.pulsar.tests.integration.loadbalance.ExtensibleLoadManagerTest.startBroker": 3,
+    "org.apache.pulsar.broker.transaction.SegmentAbortedTxnProcessorTest.testClearSnapshotSegments": 2,
+    "org.apache.pulsar.broker.service.ReplicatorTest.testResumptionAfterBacklogRelaxed": 2,
+    "org.apache.pulsar.client.api.PatternConsumerBackPressureTest.testInfiniteGetThousandsTopics": 2,
+    "org.apache.pulsar.client.api.KeySharedSubscriptionBrokerCacheTest.testReplayQueueReadsGettingCached": 2,
+    "org.apache.pulsar.broker.service.ZkSessionExpireTest.testTopicUnloadAfterSessionRebuild": 1,
+    "org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource": 1,
+    "org.apache.pulsar.client.api.NonPersistentTopicTest.testMsgDropStat": 1,
+    "org.apache.pulsar.client.api.NonPersistentTopicTest.testProducerRateLimit": 1,
+    "org.apache.pulsar.broker.SameAuthParamsLookupAutoClusterFailoverTest.testAutoClusterFailover": 1
+}

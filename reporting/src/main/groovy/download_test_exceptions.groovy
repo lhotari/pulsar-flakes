@@ -217,7 +217,7 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                     currentStepLineNumber++
                     //println "${currentStepLineNumber} ${line}"
                     if (handlingException) {
-                        if(testException.testfailure && currentLine.trim().startsWith('[')
+                        if(testException.testfailure && currentLine.trim().startsWith('[INFO]')
                            || testException.threaddump && !currentLine.trim()) {
                             testException.text = content.toString()
                             handlingException = false
@@ -258,6 +258,9 @@ def processLogFile(File logFile, job, runInfo, prInfo, attemptNumber) {
                         if (testfailureException || threaddumpException) {
                             handlingException = true
                             content = new StringBuilder()
+                            if (testfailureException) {
+                                content.append(currentLine).append('\n')
+                            }
                             testException = [
                                     testfailure: testfailureException,
                                     threaddump: threaddumpException

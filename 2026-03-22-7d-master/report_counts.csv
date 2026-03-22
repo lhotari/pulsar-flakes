@@ -1,0 +1,13 @@
+"org.apache.pulsar.broker.service.persistent.ShadowTopicTest.testConsumeShadowMessageWithoutCache",2
+"org.apache.pulsar.broker.service.TopicTerminationTest.testCreatingProducerTasksCleanupWhenOnTerminatedTopic",2
+"org.apache.pulsar.broker.loadbalance.extensions.ExtensibleLoadManagerImplTest.testLoadBalancerServiceUnitTableViewSyncer",2
+"org.apache.pulsar.broker.service.ServerCnxTest.testCreateProducerTimeout",1
+"org.apache.pulsar.broker.service.persistent.PersistentStickyKeyDispatcherMultipleConsumersClassicTest.testSkipRedeliverTemporally",1
+"org.apache.pulsar.broker.service.OneWayReplicatorUsingGlobalZKTest.cleanup",1
+"org.apache.pulsar.broker.service.ResendRequestTest.testFailoverSingleAckedNormalTopic",1
+"org.apache.pulsar.broker.delayed.bucket.BucketDelayedDeliveryTrackerThreadSafetyTest.testConcurrentContainsMessageWithWrites",1
+"org.apache.pulsar.broker.service.OneWayReplicatorDeduplicationTest.cleanup",1
+"org.apache.pulsar.broker.service.ClusterMigrationTest.testClusterMigrationWithReplicationBacklog",1
+"org.apache.bookkeeper.mledger.impl.ManagedCursorPropertiesTest.testUpdateCursorPropertiesConcurrent",1
+"org.apache.pulsar.tests.integration.functions.java.PulsarFunctionsJavaThreadTest.testTumblingCountWindowTest",1
+"org.apache.pulsar.tests.integration.io.sources.debezium.PulsarDebeziumOracleSourceTest.testDebeziumOracleDbSource",1
